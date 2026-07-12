@@ -1,0 +1,2317 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/civo-design-system-8f586b07-10a4-4893-a4d8-a9845a4a70fa/colors_and_type.css">
+<link rel="stylesheet" href="_ds/civo-design-system-8f586b07-10a4-4893-a4d8-a9845a4a70fa/preview/_shared.css">
+<script src="_ds/civo-design-system-8f586b07-10a4-4893-a4d8-a9845a4a70fa/_ds_bundle.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+<script src="sprites.js"></script>
+<style>
+html,body{margin:0;height:100%;background:#111518;}
+*{box-sizing:border-box;}
+a{color:#00ff6f;text-decoration:none;}
+a:hover{color:#05df72;}
+input,select,button{font-family:'Inter',system-ui,sans-serif;}
+input:focus,select:focus{outline:none;border-color:#00ff6f !important;}
+::placeholder{color:#758c9f;}
+@keyframes su-blink{0%,49%{opacity:1;}50%,100%{opacity:0;}}
+@keyframes su-pulse{0%,100%{opacity:1;}50%{opacity:0.35;}}
+@keyframes su-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+@keyframes su-float{0%{opacity:0;transform:translateY(6px) scale(0.8);}15%{opacity:1;transform:translateY(0) scale(1);}100%{opacity:0;transform:translateY(-56px) scale(1);}}
+@keyframes su-pop{0%{transform:scale(0);}70%{transform:scale(1.25);}100%{transform:scale(1);}}
+@keyframes su-burst{0%{opacity:0;transform:rotate(var(--rot,0deg)) translateY(0) scale(0.4);}20%{opacity:1;}100%{opacity:0;transform:rotate(var(--rot,0deg)) translateY(-120px) scale(1.15);}}
+@keyframes su-shake{0%,100%{transform:translate(0,0);}20%{transform:translate(-4px,3px);}40%{transform:translate(4px,-3px);}60%{transform:translate(-3px,-2px);}80%{transform:translate(3px,2px);}}
+@keyframes su-flash{0%,100%{opacity:1;}50%{opacity:0.15;}}
+@keyframes su-drift{from{transform:translateY(0);}to{transform:translateY(-400px);}}
+@keyframes su-fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+</style>
+</helmet>
+<div style="display:flex;height:100vh;overflow:hidden;background:#111518;font-family:'Inter',system-ui,sans-serif;color:#dbe1e6;font-size:14px;line-height:1.43;">
+
+  <!-- ══════════ LEFT NAV (Konstruct shell) ══════════ -->
+  <aside data-screen-label="Left nav" style="width:256px;min-width:256px;background:#192124;border-right:1px solid #3b4954;display:flex;flex-direction:column;overflow-y:auto;padding:24px 12px 16px;">
+    <div style="padding:0 12px 6px;display:flex;align-items:baseline;gap:2px;">
+      <span style="font:700 24px/1 'Hanken Grotesk','Inter',sans-serif;color:#fff;letter-spacing:-0.3px;">k</span>
+      <svg width="15" height="15" viewBox="0 0 16 16" style="align-self:center;margin:0 1px;"><rect x="3.2" y="3.2" width="9.6" height="9.6" rx="1" transform="rotate(45 8 8)" fill="none" stroke="#00ff6f" stroke-width="2.4"></rect></svg>
+      <span style="font:700 24px/1 'Hanken Grotesk','Inter',sans-serif;color:#fff;letter-spacing:-0.3px;">nstruct</span>
+    </div>
+    <div style="padding:0 12px 20px;font-size:11px;color:#758c9f;letter-spacing:0.3px;">v0.7.0</div>
+    <div style="display:flex;align-items:center;gap:16px;padding:8px 16px;border-radius:12px;color:#9fafbc;font-size:15px;cursor:pointer;" style-hover="background:#263237;color:#e7ebee;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16"></path><path d="M9 12h11"></path><path d="M16 8l4 4-4 4"></path></svg>
+      Getting started
+    </div>
+    <div style="padding:18px 16px 6px;font-weight:500;font-size:12px;color:#758c9f;letter-spacing:0.4px;text-transform:lowercase;">cluster management</div>
+    <div style="display:flex;align-items:center;gap:16px;padding:8px 16px;border-radius:12px;color:#9fafbc;font-size:15px;cursor:pointer;" style-hover="background:#263237;color:#e7ebee;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="8" r="2.2"></circle><circle cx="16" cy="6" r="2.2"></circle><circle cx="12" cy="16" r="2.2"></circle></svg>
+      Clusters
+    </div>
+    <div style="display:flex;align-items:center;gap:16px;padding:8px 16px;border-radius:12px;color:#9fafbc;font-size:15px;cursor:pointer;" style-hover="background:#263237;color:#e7ebee;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="7" rx="1"></rect><rect x="3" y="15" width="10" height="5" rx="1"></rect><path d="M17 15v5M20 17.5h-6"></path></svg>
+      Cluster templates
+    </div>
+    <div style="padding:18px 16px 6px;font-weight:500;font-size:12px;color:#758c9f;letter-spacing:0.4px;text-transform:lowercase;">app management</div>
+    <div style="display:flex;align-items:center;gap:16px;padding:8px 16px;border-radius:12px;color:#9fafbc;font-size:15px;cursor:pointer;" style-hover="background:#263237;color:#e7ebee;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg>
+      Applications
+    </div>
+    <div style="display:flex;align-items:center;gap:16px;padding:8px 16px;border-radius:12px;color:#9fafbc;font-size:15px;cursor:pointer;" style-hover="background:#263237;color:#e7ebee;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"></path><path d="M8 7h8M8 11h8"></path><circle cx="15.5" cy="16.5" r="1.8"></circle></svg>
+      GitOps catalog
+    </div>
+    <div style="display:flex;align-items:center;gap:16px;padding:8px 16px;border-radius:12px;color:#9fafbc;font-size:15px;cursor:pointer;" style-hover="background:#263237;color:#e7ebee;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="6" cy="6" r="2.2"></circle><circle cx="18" cy="18" r="2.2"></circle><path d="M8 6h7a3 3 0 0 1 3 3v6M6 8.2V15a3 3 0 0 0 3 3h6"></path></svg>
+      Pipeline templates
+    </div>
+    <div style="display:flex;align-items:center;gap:16px;padding:8px 16px;border-radius:12px;color:#9fafbc;font-size:15px;cursor:pointer;" style-hover="background:#263237;color:#e7ebee;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5v4.5l3 2"></path></svg>
+      Environments
+    </div>
+    <div style="display:flex;align-items:center;gap:16px;padding:8px 16px;border-radius:12px;color:#9fafbc;font-size:15px;cursor:pointer;" style-hover="background:#263237;color:#e7ebee;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="5.5" cy="12" r="2.5"></circle><circle cx="18.5" cy="5.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle><path d="M7.8 10.8 16 6.6M7.8 13.2l8.2 4.2"></path></svg>
+      Konduit
+    </div>
+    <div style="display:flex;align-items:center;gap:16px;padding:8px 16px;border-radius:12px;color:#fff;background:#3b4954;font-size:15px;cursor:pointer;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00ff6f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3.5 2 4.5 6.5 3 10l-3 3-3-3c-1.5-3.5-.5-8 3-10z"></path><circle cx="12" cy="9" r="1.6"></circle><path d="M9 13l-2.5 1.5L8 17M15 13l2.5 1.5L16 17M10.5 17.5 12 21l1.5-3.5"></path></svg>
+      <span style="flex:1;">Ship It!</span>
+      <span style="font:500 9px/14px 'Inter',sans-serif;letter-spacing:0.5px;color:#111518;background:#00ff6f;border-radius:3px;padding:0 5px;">NEW</span>
+    </div>
+    <div style="padding:18px 16px 6px;font-weight:500;font-size:12px;color:#758c9f;letter-spacing:0.4px;text-transform:lowercase;">administration</div>
+    <div style="display:flex;align-items:center;gap:16px;padding:8px 16px;border-radius:12px;color:#9fafbc;font-size:15px;cursor:pointer;" style-hover="background:#263237;color:#e7ebee;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="9" cy="8" r="3.2"></circle><path d="M3 20v-1a6 6 0 0 1 12 0v1"></path><circle cx="17" cy="9" r="2.4"></circle><path d="M21 20v-1a4.6 4.6 0 0 0-3-4.3"></path></svg>
+      Organizations
+    </div>
+    <div style="display:flex;align-items:center;gap:16px;padding:8px 16px;border-radius:12px;color:#9fafbc;font-size:15px;cursor:pointer;" style-hover="background:#263237;color:#e7ebee;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M7 18a4.5 4.5 0 0 1-.6-8.97 6 6 0 0 1 11.7 1.4A3.8 3.8 0 0 1 17.5 18z"></path></svg>
+      Cloud accounts
+    </div>
+    <div style="display:flex;align-items:center;gap:16px;padding:8px 16px;border-radius:12px;color:#9fafbc;font-size:15px;cursor:pointer;" style-hover="background:#263237;color:#e7ebee;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="15" r="4"></circle><path d="M10.8 12.2 21 2M15 4l3 3M12 7l3 3"></path></svg>
+      API keys
+    </div>
+    <div style="flex:1;"></div>
+    <div style="padding:20px 16px 4px;font-size:12px;color:#758c9f;letter-spacing:0.4px;">Powered by Civo</div>
+  </aside>
+
+  <!-- ══════════ MAIN COLUMN ══════════ -->
+  <div style="flex:1;display:flex;flex-direction:column;min-width:0;">
+    <header style="height:70px;min-height:70px;background:#192124;border-bottom:1px solid #3b4954;display:flex;align-items:center;gap:12px;padding:0 24px;">
+      <span style="font-family:'Hanken Grotesk','Inter',sans-serif;font-size:14px;color:#9fafbc;letter-spacing:0.15px;">Viewing as</span>
+      <button style="display:inline-flex;align-items:center;gap:10px;height:38px;padding:0 12px;background:#263237;border:1px solid #3b4954;border-radius:4px;color:#f3f5f7;font-size:14px;cursor:pointer;">
+        GG Organization
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#758c9f" stroke-width="1.5" stroke-linecap="round"><polyline points="4 6 8 10 12 6"></polyline></svg>
+      </button>
+      <div style="flex:1;"></div>
+      <button onClick="{{ toggleMute }}" title="Sound" style="display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 12px;border-radius:4px;background:transparent;border:1px solid #3b4954;color:#9fafbc;font-size:12px;cursor:pointer;" style-hover="color:#f3f5f7;border-color:#4b5d6c;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="{{ muteFg }}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h3l4 3.5v-11L7 10z"></path><path d="M15.5 9.5a4 4 0 0 1 0 5"></path></svg>
+        {{ muteLabel }}
+      </button>
+      <span style="width:34px;height:34px;border-radius:50%;background:#a800b7;color:#fdf4ff;font-size:12px;font-weight:500;display:inline-flex;align-items:center;justify-content:center;letter-spacing:0.3px;">KB</span>
+    </header>
+
+    <!-- ══════════ GAME VIEWPORT ══════════ -->
+    <div style="flex:1;min-height:0;position:relative;overflow:hidden;background:#0b0e10;animation:{{ stageShake }};">
+      <!-- starfield -->
+      <div style="position:absolute;inset:-400px 0 0 0;pointer-events:none;">
+        <div style="width:2px;height:2px;background:transparent;box-shadow:{{ stars1 }};animation:su-drift 90s linear infinite;"></div>
+        <div style="width:3px;height:3px;background:transparent;box-shadow:{{ stars2 }};animation:su-drift 150s linear infinite;"></div>
+      </div>
+
+      <!-- ════ TITLE ════ -->
+      <sc-if value="{{ isTitle }}" hint-placeholder-val="{{ true }}">
+        <div data-screen-label="Title screen" style="position:absolute;inset:0;overflow-y:auto;"><div style="min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:24px;">
+          <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;">
+            <div style="font-family:'Press Start 2P',monospace;font-size:11px;color:#758c9f;letter-spacing:2px;">KONSTRUCT PRESENTS</div>
+            <div style="font-family:'Press Start 2P',monospace;font-size:44px;color:#00ff6f;text-shadow:4px 4px 0 #0d542b, 8px 8px 0 rgba(0,0,0,0.6);line-height:1.2;">SHIP IT!</div>
+            <div style="font-family:'Press Start 2P',monospace;font-size:10px;color:#9fafbc;line-height:1.9;max-width:520px;">THE PLATFORM ENGINEERING HERO GAME<br>BUILD · TEST · LAUNCH · LEVEL UP</div>
+          </div>
+          <div style="background:#151b1e;border:2px solid #3b4954;border-radius:4px;padding:22px 26px;display:flex;flex-direction:column;gap:14px;width:420px;max-width:90%;box-shadow:0 8px 24px rgba(0,0,0,0.35);">
+            <div style="display:flex;align-items:center;gap:14px;">
+              <div style="width:32px;height:32px;position:relative;"><div style="width:4px;height:4px;background:transparent;box-shadow:{{ coinBs }};"></div></div>
+              <div style="flex:1;">
+                <div style="font-family:'Press Start 2P',monospace;font-size:10px;color:#f3f5f7;line-height:1.7;">STARTER APP PACK</div>
+                <div style="font-size:12px;color:#9fafbc;margin-top:3px;">10 apps to ship · free small planet included</div>
+              </div>
+              <div style="font-family:'Press Start 2P',monospace;font-size:12px;color:#fdc700;">$10<span style="font-size:8px;color:#758c9f;">/MO</span></div>
+            </div>
+            <div style="font-size:11px;color:#758c9f;border-top:1px solid #263237;padding-top:10px;">Planetary resources billed as used. Extra planets &amp; packs at the GitOps shop.</div>
+            <button onClick="{{ insertCoin }}" style="height:48px;background:#00ff6f;color:#111518;border:none;border-radius:4px;font-family:'Press Start 2P',monospace;font-size:11px;cursor:pointer;animation:su-blink 1.6s step-end infinite;" style-hover="background:#05df72;animation:none;">▶ INSERT COIN</button>
+            <sc-if value="{{ hasSave }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ continueGame }}" style="height:40px;background:transparent;border:1px solid #00ff6f;border-radius:4px;color:#00ff6f;font-family:'Press Start 2P',monospace;font-size:9px;cursor:pointer;" style-hover="background:rgba(0,255,111,0.08);">CONTINUE — {{ saveLabel }}</button>
+              <div onClick="{{ resetSave }}" style="font-size:11px;color:#758c9f;text-align:center;cursor:pointer;" style-hover="color:#fb2c37;">reset save</div>
+            </sc-if>
+          </div>
+          <div style="font-family:'Press Start 2P',monospace;font-size:8px;color:#4b5d6c;">© CIVO · A KONSTRUCT SIDE QUEST</div>
+        </div>
+        </div>
+      </sc-if>
+
+      <!-- ════ CHARACTER CREATION ════ -->
+      <sc-if value="{{ isCreate }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Character creation" style="position:absolute;inset:0;overflow-y:auto;animation:su-fade 200ms ease-out;"><div style="min-height:100%;display:flex;align-items:center;justify-content:center;gap:40px;padding:24px;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:18px;">
+            <div style="font-family:'Press Start 2P',monospace;font-size:13px;color:#00ff6f;">{{ createTitle }}</div>
+            <div style="width:230px;height:230px;background:#151b1e;border:2px solid #3b4954;border-radius:4px;position:relative;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 40px rgba(0,255,111,0.06);">
+              <div style="position:relative;width:154px;height:182px;animation:su-bob 2.4s ease-in-out infinite;">
+                <sc-for list="{{ createLayers }}" as="l" hint-placeholder-count="3">
+                  <div style="position:absolute;left:0;top:0;width:7px;height:7px;background:transparent;box-shadow:{{ l.bs }};"></div>
+                </sc-for>
+              </div>
+              <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);width:120px;height:10px;background:#263237;border-radius:50%;"></div>
+            </div>
+            <div style="font-family:'Press Start 2P',monospace;font-size:11px;color:#f3f5f7;min-height:16px;">{{ heroNameDisplay }}</div>
+          </div>
+          <div style="width:400px;max-width:44%;background:#151b1e;border:2px solid #3b4954;border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;gap:8px;">
+              <input value="{{ heroName }}" onChange="{{ setHeroName }}" placeholder="NAME YOUR HERO" maxlength="14" style="flex:1;height:42px;background:#263237;border:1px solid #3b4954;border-radius:4px;color:#f3f5f7;padding:0 12px;font-family:'Press Start 2P',monospace;font-size:10px;letter-spacing:1px;">
+              <button onClick="{{ randomName }}" title="Random name" style="width:42px;height:42px;background:#263237;border:1px solid #3b4954;border-radius:4px;color:#00ff6f;font-size:16px;cursor:pointer;" style-hover="border-color:#00ff6f;">?</button>
+            </div>
+            <sc-for list="{{ slotRows }}" as="s" hint-placeholder-count="5">
+              <div style="display:flex;align-items:center;gap:8px;">
+                <div style="width:74px;font:500 10px/14px 'Inter',sans-serif;letter-spacing:0.5px;color:#758c9f;">{{ s.label }}</div>
+                <button onClick="{{ s.prev }}" style="width:34px;height:34px;background:#263237;border:1px solid #3b4954;border-radius:4px;color:#00ff6f;cursor:pointer;font-size:13px;" style-hover="border-color:#00ff6f;">◀</button>
+                <div style="flex:1;text-align:center;font-family:'Press Start 2P',monospace;font-size:9px;color:#f3f5f7;">{{ s.value }}</div>
+                <button onClick="{{ s.next }}" style="width:34px;height:34px;background:#263237;border:1px solid #3b4954;border-radius:4px;color:#00ff6f;cursor:pointer;font-size:13px;" style-hover="border-color:#00ff6f;">▶</button>
+              </div>
+            </sc-for>
+            <button onClick="{{ randomizeAll }}" style="height:42px;background:transparent;border:1px solid #00ff6f;border-radius:4px;color:#00ff6f;font-family:'Press Start 2P',monospace;font-size:9px;cursor:pointer;" style-hover="background:rgba(0,255,111,0.08);">⟳ RANDOMIZE ALL</button>
+            <div style="border-top:1px solid #263237;padding-top:10px;display:flex;flex-direction:column;gap:6px;">
+              <div style="font:500 10px/14px 'Inter',sans-serif;letter-spacing:0.5px;color:#758c9f;">GEAR VAULT — EARN BY LEVELING</div>
+              <div style="display:flex;flex-wrap:wrap;gap:6px;">
+                <sc-for list="{{ lockedGear }}" as="g" hint-placeholder-count="3">
+                  <span style="font-size:10px;color:#758c9f;background:#1d2629;border:1px dashed #3b4954;border-radius:3px;padding:3px 8px;">{{ g.name }} · LV {{ g.lv }}</span>
+                </sc-for>
+              </div>
+            </div>
+            <button onClick="{{ confirmHero }}" style="height:48px;background:#00ff6f;color:#111518;border:none;border-radius:4px;font-family:'Press Start 2P',monospace;font-size:10px;cursor:pointer;opacity:{{ confirmOp }};" style-hover="background:#05df72;">{{ createConfirmLabel }}</button>
+          </div>
+        </div>
+        </div>
+      </sc-if>
+
+      <!-- ════ CLAIM PLANET ════ -->
+      <sc-if value="{{ isPlanet }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Claim planet" style="position:absolute;inset:0;overflow-y:auto;animation:su-fade 200ms ease-out;"><div style="min-height:100%;display:flex;align-items:center;justify-content:center;gap:40px;padding:24px;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:18px;">
+            <div style="font-family:'Press Start 2P',monospace;font-size:13px;color:#00ff6f;">{{ planetTitle }}</div>
+            <div style="width:230px;height:230px;background:#151b1e;border:2px solid #3b4954;border-radius:4px;display:flex;align-items:center;justify-content:center;position:relative;">
+              <div style="width:152px;height:152px;position:relative;animation:su-bob 3.2s ease-in-out infinite;">
+                <div style="width:8px;height:8px;background:transparent;box-shadow:{{ planetBs }};"></div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <button onClick="{{ prevLook }}" style="width:34px;height:34px;background:#263237;border:1px solid #3b4954;border-radius:4px;color:#00ff6f;cursor:pointer;" style-hover="border-color:#00ff6f;">◀</button>
+              <div style="width:90px;text-align:center;font-family:'Press Start 2P',monospace;font-size:9px;color:#f3f5f7;">{{ lookName }}</div>
+              <button onClick="{{ nextLook }}" style="width:34px;height:34px;background:#263237;border:1px solid #3b4954;border-radius:4px;color:#00ff6f;cursor:pointer;" style-hover="border-color:#00ff6f;">▶</button>
+            </div>
+          </div>
+          <div style="width:400px;max-width:44%;background:#151b1e;border:2px solid #3b4954;border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:14px;">
+            <div style="font-size:13px;color:#9fafbc;line-height:1.6;">Every hero needs a home base. Your apps will live here — name it anything.</div>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ planetName }}" onChange="{{ setPlanetName }}" placeholder="NAME YOUR PLANET" maxlength="14" style="flex:1;height:42px;background:#263237;border:1px solid #3b4954;border-radius:4px;color:#f3f5f7;padding:0 12px;font-family:'Press Start 2P',monospace;font-size:10px;letter-spacing:1px;">
+              <button onClick="{{ randomPlanetName }}" title="Random name" style="width:42px;height:42px;background:#263237;border:1px solid #3b4954;border-radius:4px;color:#00ff6f;font-size:16px;cursor:pointer;" style-hover="border-color:#00ff6f;">?</button>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;">
+              <sc-for list="{{ planetSuggestions }}" as="p" hint-placeholder-count="4">
+                <button onClick="{{ p.pick }}" style="font-size:11px;color:#9fafbc;background:#1d2629;border:1px solid #3b4954;border-radius:3px;padding:4px 10px;cursor:pointer;" style-hover="color:#00ff6f;border-color:#00ff6f;">{{ p.label }}</button>
+              </sc-for>
+            </div>
+            <div style="border:1px solid #263237;border-radius:4px;padding:12px;display:flex;flex-direction:column;gap:8px;background:#111518;">
+              <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:#758c9f;">CLASS</span><span style="color:#dbe1e6;">{{ planetClass }}</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:#758c9f;">CPU</span><span style="color:#dbe1e6;">{{ planetCpuLabel }}</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:#758c9f;">MEMORY</span><span style="color:#dbe1e6;">{{ planetMemLabel }}</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:#758c9f;">COST</span><span style="font-family:'Press Start 2P',monospace;font-size:9px;color:#fdc700;">{{ planetCostLabel }}</span></div>
+            </div>
+            <button onClick="{{ claimPlanet }}" style="height:48px;background:#00ff6f;color:#111518;border:none;border-radius:4px;font-family:'Press Start 2P',monospace;font-size:10px;cursor:pointer;opacity:{{ claimOp }};" style-hover="background:#05df72;">CLAIM PLANET ▶</button>
+          </div>
+        </div>
+        </div>
+      </sc-if>
+
+      <!-- ════ HQ ════ -->
+      <sc-if value="{{ isHq }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="HQ" style="position:absolute;inset:0;display:flex;gap:20px;padding:20px 24px;overflow:hidden;animation:su-fade 200ms ease-out;">
+
+          <!-- hero stats panel -->
+          <div style="width:252px;min-width:252px;background:#151b1e;border:2px solid #3b4954;border-radius:4px;display:flex;flex-direction:column;gap:0;overflow-y:auto;">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 16px 12px;">
+              <div style="position:relative;width:110px;height:130px;animation:su-bob 2.4s ease-in-out infinite;">
+                <sc-for list="{{ panelLayers }}" as="l" hint-placeholder-count="3">
+                  <div style="position:absolute;left:0;top:0;width:5px;height:5px;background:transparent;box-shadow:{{ l.bs }};"></div>
+                </sc-for>
+              </div>
+              <div style="font-family:'Press Start 2P',monospace;font-size:10px;color:#f3f5f7;">{{ heroNameDisplay }}</div>
+              <div style="font-size:11px;color:#758c9f;">{{ heroTitle }}</div>
+              <button onClick="{{ openWardrobe }}" style="height:26px;padding:0 12px;background:transparent;border:1px solid #3b4954;border-radius:4px;color:#9fafbc;font-size:10.5px;font-weight:600;cursor:pointer;letter-spacing:0.4px;" style-hover="color:#00ff6f;border-color:#00ff6f;">EDIT LOOK</button>
+            </div>
+            <div style="padding:0 16px 14px;display:flex;flex-direction:column;gap:6px;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;">
+                <span style="font-family:'Press Start 2P',monospace;font-size:14px;color:#00ff6f;">LV {{ level }}</span>
+                <span style="font-size:10.5px;color:#758c9f;">{{ xpLabel }}</span>
+              </div>
+              <div style="height:12px;background:#263237;border:1px solid #3b4954;border-radius:2px;overflow:hidden;">
+                <div style="height:100%;background:#00ff6f;width:{{ xpPct }};transition:width 500ms ease-out;box-shadow:0 0 8px rgba(0,255,111,0.7);"></div>
+              </div>
+            </div>
+            <div style="border-top:1px solid #263237;padding:12px 16px;display:flex;flex-direction:column;gap:9px;">
+              <sc-for list="{{ rpgStats }}" as="r" hint-placeholder-count="3">
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <span style="width:34px;font-family:'Press Start 2P',monospace;font-size:8px;color:{{ r.fg }};">{{ r.k }}</span>
+                  <div style="flex:1;height:8px;background:#263237;border-radius:2px;overflow:hidden;"><div style="height:100%;background:{{ r.fg }};width:{{ r.pct }};transition:width 600ms ease-out;"></div></div>
+                  <span style="width:24px;text-align:right;font-size:10.5px;color:#9fafbc;">{{ r.v }}</span>
+                </div>
+              </sc-for>
+              <div style="font-size:10px;color:#4b5d6c;">PWR replicas · RES health · VEL launches</div>
+            </div>
+            <div style="border-top:1px solid #263237;padding:12px 16px;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+              <sc-for list="{{ counters }}" as="c" hint-placeholder-count="4">
+                <div style="display:flex;flex-direction:column;gap:2px;">
+                  <span style="font-family:'Press Start 2P',monospace;font-size:11px;color:#f3f5f7;">{{ c.v }}</span>
+                  <span style="font-size:10px;color:#758c9f;letter-spacing:0.4px;">{{ c.k }}</span>
+                </div>
+              </sc-for>
+            </div>
+            <div style="border-top:1px solid #263237;padding:12px 16px;display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;justify-content:space-between;font-size:11.5px;"><span style="color:#758c9f;">APP TOKENS</span><span style="color:#dbe1e6;">{{ tokensLabel }}</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:11.5px;"><span style="color:#758c9f;">MONTHLY BILL</span><span style="font-family:'Press Start 2P',monospace;font-size:9px;color:#fdc700;">{{ billLabel }}</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:11.5px;"><span style="color:#758c9f;">ROCKET</span><span style="color:#dbe1e6;">{{ rocketName }}</span></div>
+              <button onClick="{{ openShop }}" style="height:38px;background:transparent;border:1px solid #fdc700;border-radius:4px;color:#fdc700;font-family:'Press Start 2P',monospace;font-size:8px;cursor:pointer;" style-hover="background:rgba(253,199,0,0.08);">$ SHIP SHOP</button>
+              <button onClick="{{ openUniverse }}" style="height:38px;background:transparent;border:1px solid #00ff6f;border-radius:4px;color:#00ff6f;font-family:'Press Start 2P',monospace;font-size:8px;cursor:pointer;" style-hover="background:rgba(0,255,111,0.08);">★ UNIVERSE</button>
+            </div>
+          </div>
+
+          <!-- main column -->
+          <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:16px;overflow-y:auto;padding-right:4px;">
+            <!-- quest log -->
+            <div>
+              <div style="font-family:'Press Start 2P',monospace;font-size:10px;color:#9fafbc;margin-bottom:10px;">QUEST LOG</div>
+              <div style="display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;">
+                <sc-for list="{{ quests }}" as="q" hint-placeholder-count="4">
+                  <div style="min-width:196px;background:#151b1e;border:2px solid {{ q.bd }};border-radius:4px;padding:12px;display:flex;flex-direction:column;gap:6px;opacity:{{ q.op }};">
+                    <div style="display:flex;align-items:center;gap:6px;">
+                      <span style="font-family:'Press Start 2P',monospace;font-size:8px;color:{{ q.fg }};">{{ q.badge }}</span>
+                      <span style="flex:1;"></span>
+                      <span style="font-size:10px;color:#fdc700;">+{{ q.xp }} XP</span>
+                    </div>
+                    <div style="font-family:'Press Start 2P',monospace;font-size:8.5px;color:#f3f5f7;line-height:1.6;">{{ q.name }}</div>
+                    <div style="font-size:11px;color:#9fafbc;line-height:1.45;">{{ q.desc }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+
+            <!-- mission callout -->
+            <sc-if value="{{ showMission }}" hint-placeholder-val="{{ false }}">
+              <div style="background:#151b1e;border:2px solid #00ff6f;border-radius:4px;padding:18px 20px;display:flex;align-items:center;gap:18px;box-shadow:0 0 24px rgba(0,255,111,0.12);">
+                <div style="flex:1;">
+                  <div style="font-family:'Press Start 2P',monospace;font-size:11px;color:#00ff6f;margin-bottom:6px;">★ QUEST 1: DEFINE YOUR REPO</div>
+                  <div style="font-size:13px;color:#9fafbc;">Pick an app from your Konstruct organization. We build it, you launch it.</div>
+                </div>
+                <button onClick="{{ openRegister }}" style="height:44px;padding:0 20px;background:#00ff6f;color:#111518;border:none;border-radius:4px;font-family:'Press Start 2P',monospace;font-size:9px;cursor:pointer;animation:su-blink 1.8s step-end infinite;" style-hover="animation:none;background:#05df72;">▶ START</button>
+              </div>
+            </sc-if>
+
+            <!-- planets -->
+            <div>
+              <div style="display:flex;align-items:center;margin-bottom:10px;">
+                <div style="font-family:'Press Start 2P',monospace;font-size:10px;color:#9fafbc;">YOUR COLONY</div>
+                <div style="flex:1;"></div>
+                <button onClick="{{ openShop }}" style="font-size:11px;color:#758c9f;background:none;border:none;cursor:pointer;" style-hover="color:#00ff6f;">+ new planet (shop)</button>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;">
+                <sc-for list="{{ planetCards }}" as="p" hint-placeholder-count="1">
+                  <div style="background:#151b1e;border:2px solid #3b4954;border-radius:4px;padding:14px;display:flex;gap:14px;">
+                    <div style="width:80px;height:80px;position:relative;flex-shrink:0;">
+                      <div style="width:4px;height:4px;background:transparent;box-shadow:{{ p.bs }};"></div>
+                      <sc-if value="{{ p.ringOn }}" hint-placeholder-val="{{ false }}">
+                        <div style="position:absolute;left:{{ p.ringLeft }};top:{{ p.ringTop }};width:{{ p.ringW }};height:{{ p.ringH }};border:1px dashed #4b5d6c;border-radius:50%;transform:rotate(-14deg);"></div>
+                      </sc-if>
+                      <sc-for list="{{ p.pods }}" as="d" hint-placeholder-count="2">
+                        <div style="position:absolute;left:{{ d.left }};top:{{ d.top }};width:2px;height:2px;background:transparent;box-shadow:{{ d.bs }};animation:su-pop 300ms ease-out;"></div>
+                      </sc-for>
+                    </div>
+                    <div style="flex:1;display:flex;flex-direction:column;gap:7px;min-width:0;">
+                      <div style="display:flex;align-items:center;gap:8px;">
+                        <span style="font-family:'Press Start 2P',monospace;font-size:9.5px;color:#f3f5f7;">{{ p.name }}</span>
+                        <span style="font-size:10px;color:#758c9f;flex:1;">{{ p.cls }}</span>
+                        <button onClick="{{ p.visit }}" style="height:26px;padding:0 10px;background:transparent;border:1px solid #3b4954;border-radius:4px;color:#9fafbc;font-size:10.5px;font-weight:600;cursor:pointer;" style-hover="color:#00ff6f;border-color:#00ff6f;">VISIT ▶</button>
+                      </div>
+                      <div style="display:flex;flex-direction:column;gap:5px;">
+                        <div style="display:flex;align-items:center;gap:6px;font-size:10px;color:#758c9f;"><span style="width:28px;">CPU</span><div style="flex:1;height:7px;background:#263237;border-radius:2px;overflow:hidden;"><div style="height:100%;background:{{ p.cpuFg }};width:{{ p.cpuPct }};transition:width 400ms;"></div></div><span style="width:52px;text-align:right;color:#9fafbc;">{{ p.cpuText }}</span></div>
+                        <div style="display:flex;align-items:center;gap:6px;font-size:10px;color:#758c9f;"><span style="width:28px;">MEM</span><div style="flex:1;height:7px;background:#263237;border-radius:2px;overflow:hidden;"><div style="height:100%;background:{{ p.memFg }};width:{{ p.memPct }};transition:width 400ms;"></div></div><span style="width:52px;text-align:right;color:#9fafbc;">{{ p.memText }}</span></div>
+                      </div>
+                      <div style="font-size:11px;color:#758c9f;">{{ p.appsLabel }}</div>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+
+            <!-- apps -->
+            <div>
+              <div style="display:flex;align-items:center;margin-bottom:10px;">
+                <div style="font-family:'Press Start 2P',monospace;font-size:10px;color:#9fafbc;">YOUR APPS</div>
+                <div style="flex:1;"></div>
+                <button onClick="{{ openRegister }}" style="display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 14px;background:transparent;border:1px solid #00ff6f;border-radius:4px;color:#00ff6f;font-weight:600;font-size:12.5px;cursor:pointer;" style-hover="background:rgba(0,255,111,0.08);">+ Register app</button>
+              </div>
+              <sc-if value="{{ noApps }}" hint-placeholder-val="{{ false }}">
+                <div style="border:1px dashed #3b4954;border-radius:4px;padding:26px;text-align:center;font-size:12.5px;color:#758c9f;">No apps yet, hero. Quest 1 awaits.</div>
+              </sc-if>
+              <div style="display:flex;flex-direction:column;gap:10px;">
+                <sc-for list="{{ appCards }}" as="a" hint-placeholder-count="1">
+                  <div style="background:#151b1e;border:2px solid #3b4954;border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:10px;">
+                    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                      <span style="width:8px;height:8px;background:{{ a.dotFg }};animation:{{ a.dotAnim }};"></span>
+                      <span style="font-family:'Press Start 2P',monospace;font-size:10px;color:#f3f5f7;">{{ a.name }}</span>
+                      <span style="font-size:11px;font-weight:600;color:{{ a.dotFg }};letter-spacing:0.5px;">{{ a.statusLabel }}</span>
+                      <span style="font-family:'Reddit Mono',monospace;font-size:11px;color:#758c9f;">{{ a.repo }}</span>
+                      <div style="flex:1;"></div>
+                      <button onClick="{{ a.stats }}" style="height:30px;padding:0 12px;background:transparent;border:1px solid #3b4954;border-radius:4px;color:#9fafbc;font-size:11px;font-weight:600;cursor:pointer;letter-spacing:0.4px;" style-hover="color:#00ff6f;border-color:#00ff6f;">STATS</button>
+                      <sc-if value="{{ a.showLaunch }}" hint-placeholder-val="{{ false }}">
+                        <button onClick="{{ a.launch }}" style="height:36px;padding:0 16px;background:#00ff6f;color:#111518;border:none;border-radius:4px;font-family:'Press Start 2P',monospace;font-size:8px;cursor:pointer;animation:su-blink 1.5s step-end infinite;" style-hover="animation:none;background:#05df72;">▶ LAUNCH</button>
+                      </sc-if>
+                      <sc-if value="{{ a.showPush }}" hint-placeholder-val="{{ false }}">
+                        <button onClick="{{ a.push }}" style="height:34px;padding:0 14px;background:transparent;border:1px solid #3b4954;border-radius:4px;color:#dbe1e6;font-size:12px;font-weight:600;cursor:pointer;" style-hover="border-color:#00ff6f;color:#00ff6f;">⇡ Push commit</button>
+                      </sc-if>
+                    </div>
+                    <sc-if value="{{ a.hasUrl }}" hint-placeholder-val="{{ false }}">
+                      <div style="display:flex;align-items:center;gap:8px;font-size:12px;">
+                        <span style="color:#758c9f;">NOW SERVING</span>
+                        <a href="#" style="font-family:'Reddit Mono',monospace;font-size:12px;">{{ a.url }}</a>
+                      </div>
+                    </sc-if>
+                    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:11.5px;color:#9fafbc;">
+                      <span>{{ a.sizeLabel }}</span>
+                      <span style="color:#4b5d6c;">·</span>
+                      <span>planet {{ a.planetName }}</span>
+                      <span style="color:#4b5d6c;">·</span>
+                      <div style="display:inline-flex;align-items:center;gap:6px;">
+                        <span>replicas</span>
+                        <button onClick="{{ a.repMinus }}" style="width:24px;height:24px;background:#263237;border:1px solid #3b4954;border-radius:3px;color:#9fafbc;cursor:pointer;font-size:12px;" style-hover="color:#00ff6f;border-color:#00ff6f;">−</button>
+                        <span style="font-family:'Press Start 2P',monospace;font-size:9px;color:#f3f5f7;">{{ a.replicas }}</span>
+                        <button onClick="{{ a.repPlus }}" style="width:24px;height:24px;background:#263237;border:1px solid #3b4954;border-radius:3px;color:#9fafbc;cursor:pointer;font-size:12px;" style-hover="color:#00ff6f;border-color:#00ff6f;">+</button>
+                      </div>
+                      <span style="color:#4b5d6c;">·</span>
+                      <label style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;" title="Blue/green launch">
+                        <span onClick="{{ a.toggleBg }}" style="width:34px;height:18px;border-radius:9px;background:{{ a.bgBg }};position:relative;display:inline-block;transition:background 200ms;"><span style="position:absolute;top:2px;left:{{ a.bgKnob }};width:14px;height:14px;border-radius:50%;background:#f3f5f7;transition:left 200ms;"></span></span>
+                        <span style="color:{{ a.bgFg }};">blue/green</span>
+                      </label>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ════ GITOPS SHOP ════ -->
+      <sc-if value="{{ isShop }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="GitOps shop" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;padding:28px 24px;overflow-y:auto;animation:su-fade 200ms ease-out;">
+          <div style="width:100%;max-width:820px;display:flex;flex-direction:column;gap:18px;">
+            <div style="display:flex;align-items:center;gap:16px;">
+              <button onClick="{{ closeShop }}" style="width:38px;height:38px;background:#263237;border:1px solid #3b4954;border-radius:4px;color:#9fafbc;cursor:pointer;font-size:15px;" style-hover="color:#00ff6f;border-color:#00ff6f;">←</button>
+              <div>
+                <div style="font-family:'Press Start 2P',monospace;font-size:15px;color:#fdc700;text-shadow:3px 3px 0 rgba(0,0,0,0.6);">THE SHIP SHOP</div>
+                <div style="font-size:12px;color:#9fafbc;margin-top:5px;">Rockets, planets &amp; app packs. A bot named ARGO runs the till.</div>
+              </div>
+              <div style="flex:1;"></div>
+              <div style="position:relative;width:88px;height:104px;">
+                <sc-for list="{{ merchantLayers }}" as="l" hint-placeholder-count="3">
+                  <div style="position:absolute;left:0;top:0;width:4px;height:4px;background:transparent;box-shadow:{{ l.bs }};"></div>
+                </sc-for>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;">
+              <sc-for list="{{ shopItems }}" as="i" hint-placeholder-count="4">
+                <div style="background:#151b1e;border:2px solid #3b4954;border-radius:4px;padding:16px;display:flex;flex-direction:column;gap:10px;" style-hover="border-color:#4b5d6c;">
+                  <div style="height:56px;display:flex;align-items:center;">
+                    <sc-if value="{{ i.hasImg }}" hint-placeholder-val="{{ false }}">
+                      <div role="img" aria-label="{{ i.name }}" style="width:50px;height:50px;margin-top:26px;background-image:url({{ i.img }});background-size:contain;background-repeat:no-repeat;background-position:center bottom;image-rendering:pixelated;"></div>
+                    </sc-if>
+                    <sc-if value="{{ i.noImg }}" hint-placeholder-val="{{ true }}">
+                      <div style="width:3px;height:3px;background:transparent;box-shadow:{{ i.iconBs }};"></div>
+                    </sc-if>
+                  </div>
+                  <div style="font-family:'Press Start 2P',monospace;font-size:9px;color:#f3f5f7;line-height:1.6;">{{ i.name }}</div>
+                  <div style="font-size:11.5px;color:#9fafbc;line-height:1.5;min-height:32px;">{{ i.desc }}</div>
+                  <div style="display:flex;align-items:center;gap:10px;">
+                    <span style="font-family:'Press Start 2P',monospace;font-size:10px;color:#fdc700;">{{ i.price }}</span>
+                    <div style="flex:1;"></div>
+                    <sc-if value="{{ i.isBtn }}" hint-placeholder-val="{{ true }}">
+                      <button onClick="{{ i.buy }}" style="height:34px;padding:0 14px;background:#00ff6f;color:#111518;border:none;border-radius:4px;font-family:'Press Start 2P',monospace;font-size:8px;cursor:pointer;" style-hover="background:#05df72;">{{ i.cta }}</button>
+                    </sc-if>
+                    <sc-if value="{{ i.isLink }}" hint-placeholder-val="{{ false }}">
+                      <a href="{{ i.href }}" target="_blank" rel="noopener" onClick="{{ i.buy }}" style="display:inline-flex;align-items:center;height:34px;padding:0 14px;background:#00ff6f;color:#111518;border-radius:4px;font-family:'Press Start 2P',monospace;font-size:8px;" style-hover="background:#05df72;">{{ i.cta }}</a>
+                    </sc-if>
+                    <sc-if value="{{ i.locked }}" hint-placeholder-val="{{ false }}">
+                      <span style="font-family:'Press Start 2P',monospace;font-size:7.5px;color:#758c9f;border:1px dashed #3b4954;border-radius:3px;padding:6px 9px;">{{ i.lockNote }}</span>
+                    </sc-if>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+            <div style="background:#151b1e;border:2px solid #3b4954;border-radius:4px;padding:16px;display:flex;flex-direction:column;gap:10px;">
+              <div style="font:500 10px/14px 'Inter',sans-serif;letter-spacing:0.5px;color:#758c9f;">THE HANGAR</div>
+              <sc-for list="{{ hangar }}" as="h" hint-placeholder-count="1">
+                <div style="display:flex;align-items:center;gap:14px;border:1px solid #263237;border-radius:4px;padding:10px 12px;background:#111518;">
+                  <div style="width:32px;height:46px;flex-shrink:0;"><div style="width:2px;height:2px;background:transparent;box-shadow:{{ h.iconBs }};"></div></div>
+                  <div style="flex:1;min-width:0;">
+                    <div style="font-family:'Press Start 2P',monospace;font-size:8.5px;color:#f3f5f7;">{{ h.name }}</div>
+                    <div style="font-size:11px;color:#758c9f;margin-top:3px;">{{ h.note }}</div>
+                  </div>
+                  <sc-if value="{{ h.equipped }}" hint-placeholder-val="{{ true }}">
+                    <span style="font-family:'Press Start 2P',monospace;font-size:8px;color:#00ff6f;">EQUIPPED</span>
+                  </sc-if>
+                  <sc-if value="{{ h.canEquip }}" hint-placeholder-val="{{ false }}">
+                    <button onClick="{{ h.equip }}" style="height:30px;padding:0 12px;background:transparent;border:1px solid #00ff6f;border-radius:4px;color:#00ff6f;font-family:'Press Start 2P',monospace;font-size:7.5px;cursor:pointer;" style-hover="background:rgba(0,255,111,0.08);">EQUIP</button>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </div>
+            <div style="background:#151b1e;border:2px solid #3b4954;border-radius:4px;padding:16px;display:flex;flex-direction:column;gap:8px;">
+              <div style="font:500 10px/14px 'Inter',sans-serif;letter-spacing:0.5px;color:#758c9f;">YOUR MONTHLY BILL</div>
+              <sc-for list="{{ billLines }}" as="b" hint-placeholder-count="2">
+                <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:#9fafbc;">{{ b.label }}</span><span style="color:#dbe1e6;">{{ b.amt }}</span></div>
+              </sc-for>
+              <div style="border-top:1px solid #263237;padding-top:8px;display:flex;justify-content:space-between;">
+                <span style="font-size:12px;color:#f3f5f7;font-weight:600;">TOTAL</span>
+                <span style="font-family:'Press Start 2P',monospace;font-size:11px;color:#fdc700;">{{ billLabel }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ════ UNIVERSE ════ -->
+      <sc-if value="{{ isUniverse }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Universe" style="position:absolute;inset:0;overflow-y:auto;animation:su-fade 200ms ease-out;">
+          <div style="max-width:1080px;margin:0 auto;padding:20px 24px;display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+              <button onClick="{{ closeUniverse }}" style="width:38px;height:38px;background:#263237;border:1px solid #3b4954;border-radius:4px;color:#9fafbc;cursor:pointer;font-size:15px;" style-hover="color:#00ff6f;border-color:#00ff6f;">←</button>
+              <div>
+                <div style="font-family:'Press Start 2P',monospace;font-size:13px;color:#00ff6f;text-shadow:3px 3px 0 #0d542b;">{{ uTitle }}</div>
+                <div style="font-size:11px;color:#758c9f;margin-top:5px;letter-spacing:0.4px;">POWERED BY KONSTRUCT · SHIP IT!</div>
+              </div>
+              <div style="flex:1;"></div>
+              <button onClick="{{ toggleUniverseStats }}" style="height:36px;padding:0 14px;background:transparent;border:1px solid #3b4954;border-radius:4px;color:#9fafbc;font-size:11px;font-weight:600;cursor:pointer;letter-spacing:0.4px;" style-hover="color:#f3f5f7;border-color:#4b5d6c;">{{ statsToggleLabel }}</button>
+              <button onClick="{{ shareUniverse }}" style="display:inline-flex;align-items:center;gap:9px;height:42px;padding:0 16px;background:#00ff6f;border:none;border-radius:4px;font-family:'Press Start 2P',monospace;font-size:8.5px;color:#111518;cursor:pointer;" style-hover="background:#05df72;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13v6a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-6"></path><path d="M12 3v12M7 8l5-5 5 5"></path></svg>
+                SHARE ON LINKEDIN
+              </button>
+            </div>
+
+            <div style="position:relative;background:#080b0d;border:2px solid #3b4954;border-radius:4px;overflow:hidden;min-height:500px;display:flex;flex-direction:column;">
+              <div style="position:absolute;inset:-400px 0 0 0;pointer-events:none;">
+                <div style="width:2px;height:2px;background:transparent;box-shadow:{{ stars1 }};animation:su-drift 120s linear infinite;"></div>
+                <div style="width:3px;height:3px;background:transparent;box-shadow:{{ stars2 }};animation:su-drift 180s linear infinite;"></div>
+              </div>
+              <sc-if value="{{ uEmpty }}" hint-placeholder-val="{{ false }}">
+                <div style="flex:1;display:flex;align-items:center;justify-content:center;font-size:13px;color:#758c9f;position:relative;">Your universe awaits — claim a planet and ship something!</div>
+              </sc-if>
+              <div style="flex:1;display:flex;align-items:flex-end;justify-content:center;gap:64px;flex-wrap:wrap;padding:34px 30px 30px 150px;position:relative;">
+                <sc-for list="{{ uPlanets }}" as="p" hint-placeholder-count="1">
+                  <div style="display:flex;flex-direction:column;align-items:center;">
+                    <sc-if value="{{ p.hasApps }}" hint-placeholder-val="{{ true }}">
+                      <div style="background:#151b1e;border:2px solid #00ff6f;border-radius:4px;padding:10px 16px;display:flex;flex-direction:column;gap:8px;box-shadow:0 0 28px rgba(0,255,111,0.22);">
+                        <sc-for list="{{ p.boards }}" as="b" hint-placeholder-count="1">
+                          <div style="display:flex;flex-direction:column;gap:3px;align-items:center;">
+                            <div style="font-family:'Reddit Mono',monospace;font-size:11.5px;color:#00ff6f;white-space:nowrap;">▲ {{ b.url }}</div>
+                            <sc-if value="{{ statsOn }}" hint-placeholder-val="{{ true }}">
+                              <div style="font-size:10px;color:#9fafbc;letter-spacing:0.4px;white-space:nowrap;">{{ b.stats }}</div>
+                            </sc-if>
+                          </div>
+                        </sc-for>
+                      </div>
+                      <div style="width:3px;height:26px;background:#3b4954;"></div>
+                    </sc-if>
+                    <div style="position:relative;width:{{ p.w }};height:{{ p.h }};animation:su-bob 4.2s ease-in-out infinite;">
+                      <div style="width:7px;height:7px;background:transparent;box-shadow:{{ p.bs }};"></div>
+                      <sc-if value="{{ p.ringOn }}" hint-placeholder-val="{{ false }}">
+                        <div style="position:absolute;left:{{ p.ringLeft }};top:{{ p.ringTop }};width:{{ p.ringW }};height:{{ p.ringH }};border:1px dashed #4b5d6c;border-radius:50%;transform:rotate(-14deg);"></div>
+                      </sc-if>
+                      <sc-for list="{{ p.pods }}" as="d" hint-placeholder-count="1">
+                        <div style="position:absolute;left:{{ d.left }};top:{{ d.top }};width:2px;height:2px;background:transparent;box-shadow:{{ d.bs }};"></div>
+                      </sc-for>
+                    </div>
+                    <div style="margin-top:12px;font-family:'Press Start 2P',monospace;font-size:10px;color:#f3f5f7;">{{ p.name }}</div>
+                    <sc-if value="{{ statsOn }}" hint-placeholder-val="{{ true }}">
+                      <div style="margin-top:5px;font-size:10px;color:#758c9f;">{{ p.sub }}</div>
+                    </sc-if>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="position:absolute;left:24px;bottom:78px;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                <div style="position:relative;width:110px;height:130px;animation:su-bob 2.6s ease-in-out infinite;">
+                  <sc-for list="{{ panelLayers }}" as="l" hint-placeholder-count="3">
+                    <div style="position:absolute;left:0;top:0;width:5px;height:5px;background:transparent;box-shadow:{{ l.bs }};"></div>
+                  </sc-for>
+                </div>
+                <div style="font-family:'Press Start 2P',monospace;font-size:8px;color:#f3f5f7;">{{ heroNameDisplay }}</div>
+                <div style="font-family:'Press Start 2P',monospace;font-size:7px;color:#00ff6f;">LV {{ level }} HERO</div>
+              </div>
+              <div style="position:relative;background:#151b1e;border-top:2px solid #263237;padding:12px 20px;display:flex;align-items:center;gap:26px;flex-wrap:wrap;">
+                <sc-if value="{{ statsOn }}" hint-placeholder-val="{{ true }}">
+                  <sc-for list="{{ uAgg }}" as="a" hint-placeholder-count="5">
+                    <div style="display:flex;flex-direction:column;gap:3px;">
+                      <span style="font-family:'Press Start 2P',monospace;font-size:11px;color:{{ a.fg }};">{{ a.v }}</span>
+                      <span style="font-size:9.5px;color:#758c9f;letter-spacing:0.5px;">{{ a.k }}</span>
+                    </div>
+                  </sc-for>
+                </sc-if>
+                <div style="flex:1;"></div>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div style="width:28px;height:44px;"><div style="width:2px;height:2px;background:transparent;box-shadow:{{ uRocketBs }};"></div></div>
+                  <div style="font-family:'Press Start 2P',monospace;font-size:8px;color:#9fafbc;line-height:1.8;">KONSTRUCT<br><span style="color:#00ff6f;">SHIP IT!</span></div>
+                </div>
+              </div>
+            </div>
+            <div style="font-size:11px;color:#758c9f;">SHARE renders your universe as a PNG and opens the share sheet — copy, save, and post.</div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ════ SHARE SHEET ════ -->
+      <sc-if value="{{ shareOpen }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Share sheet" style="position:absolute;inset:0;background:rgba(5,8,9,0.8);z-index:65;display:flex;align-items:center;justify-content:center;padding:20px;">
+          <div style="width:640px;max-width:94%;max-height:96%;overflow-y:auto;background:#151b1e;border:2px solid #00ff6f;border-radius:4px;padding:18px;display:flex;flex-direction:column;gap:12px;box-shadow:0 12px 48px rgba(0,0,0,0.7);animation:su-fade 180ms ease-out;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="font-family:'Press Start 2P',monospace;font-size:11px;color:#00ff6f;">YOUR UNIVERSE, READY TO FLEX</div>
+              <div style="flex:1;"></div>
+              <button onClick="{{ closeShare }}" style="width:32px;height:32px;background:#263237;border:1px solid #3b4954;border-radius:4px;color:#9fafbc;cursor:pointer;font-size:13px;" style-hover="color:#f3f5f7;border-color:#4b5d6c;">✕</button>
+            </div>
+            <div role="img" aria-label="Universe share card" style="width:100%;padding-top:52.5%;border:1px solid #3b4954;border-radius:4px;background-color:#0b0e10;background-image:url({{ shareImgUrl }});background-size:cover;background-position:center;"></div>
+            <div style="font-size:11.5px;font-weight:600;color:{{ shareCopiedFg }};">{{ shareCopiedNote }}</div>
+            <div style="background:#111518;border:1px solid #263237;border-radius:4px;padding:10px 12px;font-size:12px;color:#9fafbc;line-height:1.55;user-select:all;">{{ sharePostText }}</div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <button onClick="{{ copyShareImage }}" style="flex:1;min-width:150px;height:40px;background:#00ff6f;color:#111518;border:none;border-radius:4px;font-family:'Press Start 2P',monospace;font-size:8px;cursor:pointer;" style-hover="background:#05df72;">COPY IMAGE</button>
+              <button onClick="{{ downloadShare }}" style="height:40px;padding:0 14px;background:transparent;border:1px solid #00ff6f;border-radius:4px;color:#00ff6f;font-family:'Press Start 2P',monospace;font-size:8px;cursor:pointer;" style-hover="background:rgba(0,255,111,0.08);">SAVE PNG</button>
+              <button onClick="{{ copyShareText }}" style="height:40px;padding:0 14px;background:transparent;border:1px solid #3b4954;border-radius:4px;color:#dbe1e6;font-family:'Press Start 2P',monospace;font-size:8px;cursor:pointer;" style-hover="border-color:#4b5d6c;color:#f3f5f7;">COPY CAPTION</button>
+              <a href="{{ shareHref }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;height:40px;padding:0 14px;background:transparent;border:1px solid #fdc700;border-radius:4px;color:#fdc700;font-family:'Press Start 2P',monospace;font-size:8px;" style-hover="background:rgba(253,199,0,0.08);">LINKEDIN ↗</a>
+            </div>
+            <div style="font-size:10.5px;color:#758c9f;">If LinkedIn won't open from inside Konstruct, open linkedin.com in your browser and paste — the image is already on your clipboard.</div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ════ PLANET DETAIL ════ -->
+      <sc-if value="{{ isPlanetDetail }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Planet detail" style="position:absolute;inset:0;overflow-y:auto;animation:su-fade 200ms ease-out;">
+          <div style="max-width:920px;margin:0 auto;padding:24px;display:flex;flex-direction:column;gap:16px;">
+            <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+              <button onClick="{{ backFromPlanet }}" style="width:38px;height:38px;background:#263237;border:1px solid #3b4954;border-radius:4px;color:#9fafbc;cursor:pointer;font-size:15px;" style-hover="color:#00ff6f;border-color:#00ff6f;">←</button>
+              <div style="font-family:'Press Start 2P',monospace;font-size:14px;color:#00ff6f;">PLANET {{ pdName }}</div>
+              <span style="font-size:11px;color:#9fafbc;background:#263237;border-radius:4px;padding:3px 10px;letter-spacing:0.4px;">{{ pdCls }}</span>
+            </div>
+            <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:stretch;">
+              <div style="width:290px;height:290px;background:#151b1e;border:2px solid #3b4954;border-radius:4px;position:relative;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <div style="width:240px;height:230px;position:relative;">
+                  <div style="width:12px;height:12px;background:transparent;box-shadow:{{ pdBs }};"></div>
+                  <sc-if value="{{ pdRingOn }}" hint-placeholder-val="{{ false }}">
+                    <div style="position:absolute;left:{{ pdRingLeft }};top:{{ pdRingTop }};width:{{ pdRingW }};height:{{ pdRingH }};border:1px dashed #4b5d6c;border-radius:50%;transform:rotate(-14deg);"></div>
+                  </sc-if>
+                  <sc-for list="{{ pdPods }}" as="d" hint-placeholder-count="2">
+                    <div style="position:absolute;left:{{ d.left }};top:{{ d.top }};width:3px;height:3px;background:transparent;box-shadow:{{ d.bs }};animation:su-pop 300ms ease-out;"></div>
+                  </sc-for>
+                </div>
+              </div>
+              <div style="flex:1;min-width:300px;background:#151b1e;border:2px solid #3b4954;border-radius:4px;padding:16px;display:flex;flex-direction:column;gap:9px;">
+                <div style="font:500 10px/14px 'Inter',sans-serif;letter-spacing:0.5px;color:#758c9f;">WORLD DATA</div>
+                <sc-for list="{{ pdMeta }}" as="m" hint-placeholder-count="4">
+                  <div style="display:flex;justify-content:space-between;gap:12px;font-size:12px;border-bottom:1px solid #1d2629;padding-bottom:7px;"><span style="color:#758c9f;">{{ m.k }}</span><span style="color:#dbe1e6;text-align:right;">{{ m.v }}</span></div>
+                </sc-for>
+                <div style="display:flex;align-items:center;gap:8px;font-size:10px;color:#758c9f;margin-top:4px;"><span style="width:28px;">CPU</span><div style="flex:1;height:8px;background:#263237;border-radius:2px;overflow:hidden;"><div style="height:100%;background:#00ff6f;width:{{ pdCpuPct }};transition:width 400ms;"></div></div><span style="width:72px;text-align:right;color:#9fafbc;">{{ pdCpuText }}</span></div>
+                <div style="display:flex;align-items:center;gap:8px;font-size:10px;color:#758c9f;"><span style="width:28px;">MEM</span><div style="flex:1;height:8px;background:#263237;border-radius:2px;overflow:hidden;"><div style="height:100%;background:#00ff6f;width:{{ pdMemPct }};transition:width 400ms;"></div></div><span style="width:72px;text-align:right;color:#9fafbc;">{{ pdMemText }}</span></div>
+              </div>
+            </div>
+            <div>
+              <div style="font-family:'Press Start 2P',monospace;font-size:10px;color:#9fafbc;margin-bottom:10px;">DEPLOYED HERE</div>
+              <sc-if value="{{ pdEmpty }}" hint-placeholder-val="{{ false }}">
+                <div style="border:1px dashed #3b4954;border-radius:4px;padding:24px;text-align:center;font-size:12.5px;color:#758c9f;">Nothing lives here yet. Register an app and launch it!</div>
+              </sc-if>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <sc-for list="{{ pdApps }}" as="a" hint-placeholder-count="1">
+                  <div style="background:#151b1e;border:2px solid #3b4954;border-radius:4px;padding:12px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                    <span style="width:8px;height:8px;background:{{ a.fg }};animation:{{ a.anim }};"></span>
+                    <span style="font-family:'Press Start 2P',monospace;font-size:9px;color:#f3f5f7;">{{ a.name }}</span>
+                    <span style="font-size:11px;font-weight:600;color:{{ a.fg }};letter-spacing:0.5px;">{{ a.statusLabel }}</span>
+                    <span style="font-size:11.5px;color:#9fafbc;">{{ a.size }}</span>
+                    <span style="font-family:'Reddit Mono',monospace;font-size:11.5px;color:#758c9f;flex:1;min-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ a.url }}</span>
+                    <button onClick="{{ a.stats }}" style="height:30px;padding:0 12px;background:transparent;border:1px solid #3b4954;border-radius:4px;color:#9fafbc;font-size:11px;font-weight:600;cursor:pointer;" style-hover="color:#00ff6f;border-color:#00ff6f;">STATS</button>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ════ APP DETAIL (flight record) ════ -->
+      <sc-if value="{{ isAppDetail }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="App detail" style="position:absolute;inset:0;overflow-y:auto;animation:su-fade 200ms ease-out;">
+          <div style="max-width:920px;margin:0 auto;padding:24px;display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+              <button onClick="{{ backFromApp }}" style="width:38px;height:38px;background:#263237;border:1px solid #3b4954;border-radius:4px;color:#9fafbc;cursor:pointer;font-size:15px;" style-hover="color:#00ff6f;border-color:#00ff6f;">←</button>
+              <div style="font-family:'Press Start 2P',monospace;font-size:14px;color:#f3f5f7;">{{ adName }}</div>
+              <span style="display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:600;color:{{ adStatusFg }};letter-spacing:0.5px;"><span style="width:8px;height:8px;background:{{ adStatusFg }};animation:{{ adStatusAnim }};"></span>{{ adStatusLabel }}</span>
+              <div style="flex:1;"></div>
+              <sc-if value="{{ adHasUrl }}" hint-placeholder-val="{{ false }}">
+                <a href="#" style="font-family:'Reddit Mono',monospace;font-size:12px;">{{ adUrl }}</a>
+              </sc-if>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+              <div style="background:#151b1e;border:2px solid #3b4954;border-radius:4px;padding:14px;display:flex;flex-direction:column;gap:4px;">
+                <span style="font-family:'Press Start 2P',monospace;font-size:13px;color:#00ff6f;">{{ adChecks }}</span>
+                <span style="font-size:10px;color:#758c9f;letter-spacing:0.4px;">HEALTH CHECKS PASSED</span>
+              </div>
+              <div style="background:#151b1e;border:2px solid #3b4954;border-radius:4px;padding:14px;display:flex;flex-direction:column;gap:4px;">
+                <span style="font-family:'Press Start 2P',monospace;font-size:13px;color:#00bcff;">{{ adUptime }}</span>
+                <span style="font-size:10px;color:#758c9f;letter-spacing:0.4px;">UPTIME</span>
+              </div>
+              <div style="background:#151b1e;border:2px solid #3b4954;border-radius:4px;padding:14px;display:flex;flex-direction:column;gap:4px;">
+                <span style="font-family:'Press Start 2P',monospace;font-size:13px;color:#fdc700;">{{ adDeploys }}</span>
+                <span style="font-size:10px;color:#758c9f;letter-spacing:0.4px;">DEPLOYS</span>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;align-items:start;">
+              <div style="background:#151b1e;border:2px solid #3b4954;border-radius:4px;padding:16px;display:flex;flex-direction:column;gap:8px;">
+                <div style="font:500 10px/14px 'Inter',sans-serif;letter-spacing:0.5px;color:#758c9f;">DEPLOYMENT</div>
+                <sc-for list="{{ adDeploy }}" as="r" hint-placeholder-count="6">
+                  <div style="display:flex;justify-content:space-between;gap:14px;font-size:12px;border-bottom:1px solid #1d2629;padding-bottom:6px;"><span style="color:#758c9f;flex-shrink:0;">{{ r.k }}</span><span style="font-family:'Reddit Mono',monospace;font-size:11.5px;color:#dbe1e6;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ r.v }}</span></div>
+                </sc-for>
+              </div>
+              <div style="background:#151b1e;border:2px solid #3b4954;border-radius:4px;padding:16px;display:flex;flex-direction:column;gap:8px;">
+                <div style="font:500 10px/14px 'Inter',sans-serif;letter-spacing:0.5px;color:#758c9f;">RESOURCES</div>
+                <sc-for list="{{ adRes }}" as="r" hint-placeholder-count="6">
+                  <div style="display:flex;justify-content:space-between;gap:14px;font-size:12px;border-bottom:1px solid #1d2629;padding-bottom:6px;"><span style="color:#758c9f;flex-shrink:0;">{{ r.k }}</span><span style="font-family:'Reddit Mono',monospace;font-size:11.5px;color:#dbe1e6;text-align:right;">{{ r.v }}</span></div>
+                </sc-for>
+              </div>
+            </div>
+            <div style="background:#151b1e;border:2px solid #3b4954;border-radius:4px;padding:16px;display:flex;flex-direction:column;gap:8px;">
+              <div style="font:500 10px/14px 'Inter',sans-serif;letter-spacing:0.5px;color:#758c9f;">PODS</div>
+              <sc-for list="{{ adPods }}" as="p" hint-placeholder-count="2">
+                <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:12px;align-items:center;font-size:12px;border:1px solid #263237;border-radius:4px;padding:9px 12px;background:#111518;">
+                  <span style="font-family:'Reddit Mono',monospace;font-size:11.5px;color:#dbe1e6;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ p.name }}</span>
+                  <span style="font-size:11px;font-weight:600;color:{{ p.fg }};letter-spacing:0.5px;">{{ p.status }}</span>
+                  <span style="color:#9fafbc;">restarts {{ p.restarts }}</span>
+                  <span style="color:#9fafbc;text-align:right;">{{ p.age }}</span>
+                </div>
+              </sc-for>
+            </div>
+            <div style="background:#151b1e;border:2px solid #3b4954;border-radius:4px;padding:16px;display:flex;flex-direction:column;gap:8px;">
+              <div style="font:500 10px/14px 'Inter',sans-serif;letter-spacing:0.5px;color:#758c9f;">FLIGHT LOG</div>
+              <sc-if value="{{ adLogEmpty }}" hint-placeholder-val="{{ false }}">
+                <div style="font-size:12px;color:#758c9f;padding:8px 0;">No launches yet — the black box is empty.</div>
+              </sc-if>
+              <sc-for list="{{ adLog }}" as="h" hint-placeholder-count="2">
+                <div style="display:flex;align-items:center;gap:12px;font-size:12px;border-bottom:1px solid #1d2629;padding-bottom:6px;flex-wrap:wrap;">
+                  <span style="font-family:'Reddit Mono',monospace;font-size:11.5px;color:#9fafbc;">{{ h.sha }}</span>
+                  <span style="color:#dbe1e6;flex:1;min-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ h.msg }}</span>
+                  <span style="font-weight:600;color:{{ h.fg }};letter-spacing:0.5px;font-size:11px;">{{ h.result }}</span>
+                  <span style="color:#9fafbc;">{{ h.dur }}</span>
+                  <span style="color:#758c9f;">{{ h.ago }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ════ FRIDAY SHIP CELEBRATION ════ -->
+      <sc-if value="{{ fridayOpen }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Friday celebration" style="position:absolute;inset:0;background:rgba(5,8,9,0.85);z-index:62;display:flex;align-items:center;justify-content:center;">
+          <div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:16px;padding:40px;text-align:center;">
+            <sc-for list="{{ luStars }}" as="s" hint-placeholder-count="6">
+              <div style="position:absolute;left:50%;top:40%;width:3px;height:3px;background:transparent;box-shadow:{{ s.bs }};--rot:{{ s.rot }};animation:su-burst 1s ease-out {{ s.dl }} infinite;"></div>
+            </sc-for>
+            <div style="font-family:'Press Start 2P',monospace;font-size:12px;color:#9fafbc;letter-spacing:2px;">{{ fridayApp }} IS LIVE AND IT'S</div>
+            <div style="font-family:'Press Start 2P',monospace;font-size:42px;color:#fdc700;text-shadow:5px 5px 0 #7b3306;animation:su-flash 600ms step-end infinite;line-height:1.3;">FRIDAY!!</div>
+            <div style="font-family:'Press Start 2P',monospace;font-size:11px;color:#00ff6f;line-height:2;">YOU SHIPPED TO PROD ON A FRIDAY<br>ABSOLUTE LEGEND · +100 XP</div>
+            <div style="font-size:12px;color:#758c9f;">(may your pager stay silent)</div>
+            <button onClick="{{ closeFriday }}" style="margin-top:6px;height:44px;padding:0 22px;background:#00ff6f;color:#111518;border:none;border-radius:4px;font-family:'Press Start 2P',monospace;font-size:10px;cursor:pointer;animation:su-blink 1.4s step-end infinite;" style-hover="animation:none;background:#05df72;">PRESS START ▶</button>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ════ REGISTER MODAL ════ -->
+      <sc-if value="{{ regOpen }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Register app" style="position:absolute;inset:0;background:rgba(0,0,0,0.55);display:flex;align-items:center;justify-content:center;z-index:30;">
+          <div style="width:480px;max-width:92%;background:#151b1e;border:2px solid #00ff6f;border-radius:4px;padding:22px;display:flex;flex-direction:column;gap:14px;box-shadow:0 12px 40px rgba(0,0,0,0.6);animation:su-fade 160ms ease-out;">
+            <div style="font-family:'Press Start 2P',monospace;font-size:11px;color:#00ff6f;">REGISTER YOUR APP</div>
+            <div style="font-size:12px;color:#9fafbc;margin-top:-6px;">From GG Organization — Konstruct builds &amp; ships it for you.</div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <label style="font-size:12px;font-weight:500;color:#dbe1e6;">Repository</label>
+              <select value="{{ regRepo }}" onChange="{{ setRegRepo }}" style="height:40px;background:#263237;border:1px solid #3b4954;border-radius:4px;color:#f3f5f7;padding:0 12px;font-size:13px;cursor:pointer;">
+                <option value="">Select a repository…</option>
+                <sc-for list="{{ repoOptions }}" as="o" hint-placeholder-count="4"><option value="{{ o.v }}">{{ o.label }}</option></sc-for>
+              </select>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <label style="font-size:12px;font-weight:500;color:#dbe1e6;">App name</label>
+                <input value="{{ regName }}" onChange="{{ setRegName }}" style="height:40px;background:#263237;border:1px solid #3b4954;border-radius:4px;color:#f3f5f7;padding:0 12px;font-size:13px;">
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <label style="font-size:12px;font-weight:500;color:#dbe1e6;">Planet</label>
+                <select value="{{ regPlanet }}" onChange="{{ setRegPlanet }}" style="height:40px;background:#263237;border:1px solid #3b4954;border-radius:4px;color:#f3f5f7;padding:0 12px;font-size:13px;cursor:pointer;">
+                  <sc-for list="{{ planetOptions }}" as="o" hint-placeholder-count="1"><option value="{{ o.v }}">{{ o.label }}</option></sc-for>
+                </select>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <label style="font-size:12px;font-weight:500;color:#dbe1e6;">CPU / container</label>
+                <select value="{{ regCpu }}" onChange="{{ setRegCpu }}" style="height:40px;background:#263237;border:1px solid #3b4954;border-radius:4px;color:#f3f5f7;padding:0 12px;font-size:13px;cursor:pointer;">
+                  <option value="1">1 CPU</option><option value="2">2 CPU</option><option value="4">4 CPU</option>
+                </select>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <label style="font-size:12px;font-weight:500;color:#dbe1e6;">Memory</label>
+                <select value="{{ regMem }}" onChange="{{ setRegMem }}" style="height:40px;background:#263237;border:1px solid #3b4954;border-radius:4px;color:#f3f5f7;padding:0 12px;font-size:13px;cursor:pointer;">
+                  <option value="1">1 GB</option><option value="2">2 GB</option><option value="4">4 GB</option>
+                </select>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <label style="font-size:12px;font-weight:500;color:#dbe1e6;">Replicas</label>
+                <select value="{{ regReplicas }}" onChange="{{ setRegReplicas }}" style="height:40px;background:#263237;border:1px solid #3b4954;border-radius:4px;color:#f3f5f7;padding:0 12px;font-size:13px;cursor:pointer;">
+                  <sc-for list="{{ replicaOptions }}" as="o" hint-placeholder-count="2"><option value="{{ o.v }}">{{ o.label }}</option></sc-for>
+                </select>
+              </div>
+            </div>
+            <div style="border:1px solid #263237;border-radius:4px;padding:10px 12px;background:#111518;display:flex;flex-direction:column;gap:6px;">
+              <div style="display:flex;justify-content:space-between;font-size:11px;color:#758c9f;"><span>PLANET LOAD AFTER LAUNCH</span><span style="color:{{ capFg }};">{{ capNote }}</span></div>
+              <sc-if value="{{ capFull }}" hint-placeholder-val="{{ false }}">
+                <button onClick="{{ goShopFromReg }}" style="height:36px;background:transparent;border:1px solid #fdc700;border-radius:4px;color:#fdc700;font-family:'Press Start 2P',monospace;font-size:8px;cursor:pointer;" style-hover="background:rgba(253,199,0,0.08);">$ GET MORE PLANET — SHIP SHOP ▶</button>
+              </sc-if>
+              <div style="display:flex;align-items:center;gap:6px;font-size:10px;color:#758c9f;"><span style="width:26px;">CPU</span><div style="flex:1;height:7px;background:#263237;border-radius:2px;overflow:hidden;display:flex;"><div style="height:100%;background:#4b5d6c;width:{{ capCpuUsed }};"></div><div style="height:100%;background:{{ capFg }};width:{{ capCpuNew }};"></div></div><span style="width:50px;text-align:right;color:#9fafbc;">{{ capCpuText }}</span></div>
+              <div style="display:flex;align-items:center;gap:6px;font-size:10px;color:#758c9f;"><span style="width:26px;">MEM</span><div style="flex:1;height:7px;background:#263237;border-radius:2px;overflow:hidden;display:flex;"><div style="height:100%;background:#4b5d6c;width:{{ capMemUsed }};"></div><div style="height:100%;background:{{ capFg }};width:{{ capMemNew }};"></div></div><span style="width:50px;text-align:right;color:#9fafbc;">{{ capMemText }}</span></div>
+            </div>
+            <div style="display:flex;gap:10px;justify-content:flex-end;">
+              <button onClick="{{ closeRegister }}" style="height:42px;padding:0 16px;background:transparent;border:1px solid #3b4954;border-radius:4px;color:#dbe1e6;font-weight:600;font-size:13px;cursor:pointer;">Cancel</button>
+              <button onClick="{{ submitRegister }}" style="height:42px;padding:0 18px;background:#00ff6f;color:#111518;border:none;border-radius:4px;font-family:'Press Start 2P',monospace;font-size:9px;cursor:pointer;opacity:{{ regOp }};" style-hover="background:#05df72;">REGISTER +50 XP</button>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ════ LAUNCH CINEMATIC ════ -->
+      <sc-if value="{{ launchOpen }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Launch cinematic" style="position:absolute;inset:0;background:#0b0e10;z-index:40;overflow:hidden;">
+          <div style="position:absolute;inset:-400px 0 0 0;pointer-events:none;"><div style="width:2px;height:2px;background:transparent;box-shadow:{{ stars1 }};animation:su-drift 60s linear infinite;"></div></div>
+
+          <!-- caption + skip -->
+          <div style="position:absolute;top:22px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:10px;z-index:5;">
+            <div style="font-family:'Press Start 2P',monospace;font-size:12px;color:#00ff6f;text-align:center;line-height:1.8;">{{ lCaption }}</div>
+            <div style="font-size:11px;color:#758c9f;">{{ lSub }}</div>
+          </div>
+          <button onClick="{{ skipLaunch }}" style="position:absolute;top:20px;right:20px;z-index:6;height:32px;padding:0 12px;background:rgba(21,27,30,0.9);border:1px solid #3b4954;border-radius:4px;color:#9fafbc;font-size:11px;cursor:pointer;" style-hover="color:#f3f5f7;border-color:#4b5d6c;">SKIP ▸▸</button>
+
+          <!-- PAD scene -->
+          <sc-if value="{{ scenePad }}" hint-placeholder-val="{{ true }}">
+            <div style="position:absolute;inset:0;">
+              <div style="position:absolute;left:0;right:0;bottom:0;height:64px;background:#151b1e;border-top:2px solid #263237;"></div>
+              <div style="position:absolute;left:50%;margin-left:60px;bottom:{{ rocketBottom }};transition:bottom 2.4s cubic-bezier(0.5,0,0.9,0.4);width:65px;height:105px;">
+                <div style="width:5px;height:5px;background:transparent;box-shadow:{{ rocketBs }};"></div>
+                <div style="position:absolute;left:14px;top:34px;width:36px;height:{{ hatchH }};background:#263237;transition:height 900ms steps(6);"></div>
+                <sc-if value="{{ flameOn }}" hint-placeholder-val="{{ false }}">
+                  <div style="position:absolute;left:16px;top:104px;width:5px;height:5px;background:transparent;box-shadow:{{ flameBs }};"></div>
+                </sc-if>
+                <sc-if value="{{ rocketLabelOn }}" hint-placeholder-val="{{ false }}">
+                  <div style="position:absolute;left:25px;top:53px;writing-mode:vertical-rl;text-orientation:upright;font-family:'Press Start 2P',monospace;font-size:8px;color:{{ rocketLabelFg }};letter-spacing:3px;">{{ rocketLabel }}</div>
+                </sc-if>
+              </div>
+              <div style="position:absolute;left:50%;margin-left:52px;bottom:56px;width:82px;height:8px;background:#263237;border-radius:2px;"></div>
+              <div style="position:absolute;left:{{ heroX }};bottom:62px;transition:left 2.2s linear, opacity 1s ease;opacity:{{ heroOp }};width:110px;height:130px;">
+                <sc-for list="{{ launchHeroLayers }}" as="l" hint-placeholder-count="3">
+                  <div style="position:absolute;left:0;top:0;width:5px;height:5px;background:transparent;box-shadow:{{ l.bs }};"></div>
+                </sc-for>
+                <sc-if value="{{ crateOn }}" hint-placeholder-val="{{ false }}">
+                  <div style="position:absolute;left:82px;top:76px;width:4px;height:4px;background:transparent;box-shadow:{{ crateBs }};"></div>
+                </sc-if>
+                <sc-if value="{{ pillsOn }}" hint-placeholder-val="{{ false }}">
+                  <div style="position:absolute;left:88px;top:38px;width:4px;height:4px;background:transparent;box-shadow:{{ pillsBs }};animation:su-pop 400ms ease-out;"></div>
+                </sc-if>
+                <sc-if value="{{ helmetFlash }}" hint-placeholder-val="{{ false }}">
+                  <div style="position:absolute;left:104px;top:-6px;font-family:'Press Start 2P',monospace;font-size:12px;color:#00ff6f;animation:su-pop 400ms ease-out;">✓</div>
+                </sc-if>
+              </div>
+            </div>
+          </sc-if>
+
+          <!-- COCKPIT scene — first person -->
+          <sc-if value="{{ sceneCockpit }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;padding-top:52px;overflow-y:auto;">
+              <div style="flex:1;display:flex;align-items:center;justify-content:center;min-height:84px;padding:8px 24px;">
+                <div style="width:min(620px,78%);height:100%;max-height:190px;border:10px solid #263237;outline:3px solid #3b4954;border-radius:16px 16px 6px 6px;background:#04060a;position:relative;overflow:hidden;box-shadow:inset 0 0 36px rgba(0,0,0,0.85);">
+                  <div style="position:absolute;inset:-400px 0 0 0;pointer-events:none;"><div style="width:2px;height:2px;background:transparent;box-shadow:{{ stars2 }};animation:su-drift 40s linear infinite;"></div></div>
+                  <sc-if value="{{ goOn }}" hint-placeholder-val="{{ false }}">
+                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+                      <div style="font-family:'Press Start 2P',monospace;font-size:19px;color:#00ff6f;text-shadow:3px 3px 0 #0d542b;animation:su-flash 500ms step-end infinite;">ALL SYSTEMS GO!</div>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ countOn }}" hint-placeholder-val="{{ false }}">
+                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+                      <div style="font-family:'Press Start 2P',monospace;font-size:60px;color:#f3f5f7;text-shadow:5px 5px 0 #0d542b;animation:su-pop 900ms ease-out;">{{ countText }}</div>
+                    </div>
+                  </sc-if>
+                  <div style="position:absolute;left:0;right:0;bottom:0;height:8px;background:#151b1e;border-top:1px solid #263237;"></div>
+                </div>
+              </div>
+              <div style="background:#151b1e;border-top:3px solid #3b4954;box-shadow:0 -8px 30px rgba(0,0,0,0.5);padding:14px 20px 16px;display:flex;gap:16px;align-items:stretch;justify-content:center;flex-wrap:wrap;">
+                <div style="width:470px;max-width:50%;background:#0d1113;border:2px solid #3b4954;border-radius:4px;overflow:hidden;display:flex;flex-direction:column;">
+                  <div style="display:flex;align-items:center;gap:8px;padding:7px 12px;background:#111518;border-bottom:1px solid #263237;">
+                    <span style="width:8px;height:8px;border-radius:50%;background:#fb2c37;"></span>
+                    <span style="width:8px;height:8px;border-radius:50%;background:#fdc700;"></span>
+                    <span style="width:8px;height:8px;border-radius:50%;background:#00ff6f;"></span>
+                    <span style="font-family:'Reddit Mono',monospace;font-size:11px;color:#758c9f;margin-left:6px;">konstruct-cockpit — build.log</span>
+                  </div>
+                  <div style="padding:12px;height:132px;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;overflow:hidden;">
+                    <sc-for list="{{ logLines }}" as="l" hint-placeholder-count="3">
+                      <div style="flex-shrink:0;font-family:'Reddit Mono',monospace;font-size:11.5px;line-height:1.35;color:{{ l.fg }};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ l.text }}</div>
+                    </sc-for>
+                    <div style="font-family:'Reddit Mono',monospace;font-size:11.5px;color:#00ff6f;animation:su-blink 1s step-end infinite;">█</div>
+                  </div>
+                  <div style="height:9px;background:#263237;"><div style="height:100%;background:#00ff6f;width:{{ buildPct }};transition:width 400ms linear;"></div></div>
+                </div>
+                <div style="width:206px;display:flex;flex-direction:column;gap:7px;">
+                  <div style="font-family:'Press Start 2P',monospace;font-size:8px;color:#9fafbc;">PRE-FLIGHT CHECKS</div>
+                  <sc-for list="{{ tests }}" as="t" hint-placeholder-count="4">
+                    <div style="display:flex;align-items:center;gap:10px;background:#111518;border:1px solid {{ t.bd }};border-radius:4px;padding:7px 11px;">
+                      <span style="font-family:'Press Start 2P',monospace;font-size:9px;color:{{ t.fg }};">{{ t.mark }}</span>
+                      <span style="font-size:11.5px;color:#dbe1e6;">{{ t.name }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+                <div style="width:174px;display:flex;flex-direction:column;gap:9px;align-items:center;justify-content:center;">
+                  <div style="display:flex;gap:11px;">
+                    <sc-for list="{{ cockLights }}" as="c" hint-placeholder-count="4">
+                      <div style="display:flex;flex-direction:column;align-items:center;gap:3px;">
+                        <span style="width:10px;height:10px;border-radius:50%;background:{{ c.fg }};animation:{{ c.anim }};box-shadow:0 0 8px {{ c.fg }};"></span>
+                        <span style="font-size:8px;color:#758c9f;letter-spacing:0.5px;">{{ c.label }}</span>
+                      </div>
+                    </sc-for>
+                  </div>
+                  <div style="background:repeating-linear-gradient(45deg,#fdc700 0 9px,#151b1e 9px 18px);padding:9px;border-radius:10px;border:1px solid #3b4954;">
+                    <button onClick="{{ pressLaunch }}" style="width:102px;height:102px;border-radius:50%;border:6px solid {{ btnRim }};background:{{ btnBg }};color:{{ btnFg }};font-family:'Press Start 2P',monospace;font-size:10px;cursor:{{ btnCursor }};animation:{{ btnAnim }};box-shadow:{{ btnShadow }};">{{ btnLabel }}</button>
+                  </div>
+                  <div style="font-family:'Press Start 2P',monospace;font-size:7px;color:{{ btnHintFg }};text-align:center;line-height:1.8;">{{ btnHint }}</div>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+
+          <!-- PLANET scene -->
+          <sc-if value="{{ scenePlanet }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;inset:0;">
+              <div style="position:absolute;left:50%;transform:translateX(-50%);bottom:-110px;width:320px;height:320px;">
+                <div style="width:16px;height:16px;background:transparent;box-shadow:{{ planetBigBs }};"></div>
+              </div>
+              <div style="position:absolute;left:50%;margin-left:-26px;top:{{ rocketTop }};transition:top 2.2s cubic-bezier(0.2,0.6,0.4,1);width:52px;height:84px;">
+                <div style="width:4px;height:4px;background:transparent;box-shadow:{{ rocketSmBs }};"></div>
+                <sc-if value="{{ rocketLabelOn }}" hint-placeholder-val="{{ false }}">
+                  <div style="position:absolute;left:21px;top:43px;writing-mode:vertical-rl;text-orientation:upright;font-family:'Press Start 2P',monospace;font-size:6px;color:{{ rocketLabelFg }};letter-spacing:2px;">{{ rocketLabel }}</div>
+                </sc-if>
+              </div>
+              <sc-for list="{{ scenePods }}" as="p" hint-placeholder-count="2">
+                <div style="position:absolute;left:{{ p.left }};bottom:{{ p.bottom }};width:4px;height:4px;background:transparent;box-shadow:{{ p.bs }};transform:{{ p.tr }};transition:transform 300ms cubic-bezier(0.3,1.6,0.6,1);"></div>
+              </sc-for>
+              <sc-if value="{{ bgZones }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;left:50%;transform:translateX(-50%);bottom:190px;display:flex;gap:10px;">
+                  <span style="font-family:'Press Start 2P',monospace;font-size:8px;color:#74d4ff;background:rgba(0,105,168,0.25);border:1px solid #74d4ff;border-radius:3px;padding:5px 9px;">BLUE ZONE</span>
+                  <span style="font-family:'Press Start 2P',monospace;font-size:8px;color:#00ff6f;background:rgba(0,255,111,0.12);border:1px solid #00ff6f;border-radius:3px;padding:5px 9px;">GREEN ZONE</span>
+                </div>
+              </sc-if>
+              <sc-if value="{{ urlOn }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;left:50%;transform:translateX(-50%);bottom:120px;background:#151b1e;border:2px solid #00ff6f;border-radius:4px;padding:12px 18px;display:flex;align-items:center;gap:12px;animation:su-pop 400ms ease-out;box-shadow:0 0 30px rgba(0,255,111,0.25);">
+                  <span style="font-family:'Press Start 2P',monospace;font-size:9px;color:#00ff6f;">NOW SERVING</span>
+                  <a href="#" style="font-family:'Reddit Mono',monospace;font-size:13px;">{{ launchUrl }}</a>
+                </div>
+              </sc-if>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <!-- ════ LEVEL-UP OVERLAY ════ -->
+      <sc-if value="{{ luOpen }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Level up" style="position:absolute;inset:0;background:rgba(5,8,9,0.82);z-index:60;display:flex;align-items:center;justify-content:center;">
+          <div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:18px;padding:40px;">
+            <sc-for list="{{ luStars }}" as="s" hint-placeholder-count="6">
+              <div style="position:absolute;left:50%;top:44%;width:3px;height:3px;background:transparent;box-shadow:{{ s.bs }};--rot:{{ s.rot }};animation:su-burst 1.1s ease-out {{ s.dl }} infinite;"></div>
+            </sc-for>
+            <div style="font-family:'Press Start 2P',monospace;font-size:30px;color:#fdc700;text-shadow:4px 4px 0 #7b3306;animation:su-flash 700ms step-end infinite;">★ LEVEL UP! ★</div>
+            <div style="font-family:'Press Start 2P',monospace;font-size:64px;color:#00ff6f;text-shadow:6px 6px 0 #0d542b;animation:su-pop 500ms ease-out;">LV {{ luLevel }}</div>
+            <sc-if value="{{ luUnlockOn }}" hint-placeholder-val="{{ false }}">
+              <div style="font-family:'Press Start 2P',monospace;font-size:10px;color:#f3f5f7;background:#151b1e;border:2px solid #fdc700;border-radius:4px;padding:12px 18px;line-height:1.8;">NEW GEAR UNLOCKED: {{ luUnlock }}</div>
+            </sc-if>
+            <button onClick="{{ closeLu }}" style="margin-top:8px;height:44px;padding:0 22px;background:#00ff6f;color:#111518;border:none;border-radius:4px;font-family:'Press Start 2P',monospace;font-size:10px;cursor:pointer;animation:su-blink 1.4s step-end infinite;" style-hover="animation:none;background:#05df72;">PRESS START ▶</button>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- toast -->
+      <sc-if value="{{ toastOn }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;top:18px;right:18px;z-index:70;background:#151b1e;border:2px solid {{ toastBd }};border-radius:4px;padding:12px 16px;max-width:340px;box-shadow:0 12px 32px rgba(0,0,0,0.45);animation:su-fade 200ms ease-out;">
+          <div style="font-family:'Press Start 2P',monospace;font-size:8.5px;color:{{ toastBd }};line-height:1.7;">{{ toastTitle }}</div>
+          <div style="font-size:12px;color:#9fafbc;margin-top:4px;">{{ toastBody }}</div>
+        </div>
+      </sc-if>
+
+      <!-- XP floaters -->
+      <sc-for list="{{ floaters }}" as="f" hint-placeholder-count="0">
+        <div style="position:absolute;left:{{ f.left }};top:{{ f.top }};z-index:80;pointer-events:none;font-family:'Press Start 2P',monospace;font-size:12px;color:{{ f.fg }};text-shadow:2px 2px 0 rgba(0,0,0,0.7);animation:su-float 1.5s ease-out forwards;">{{ f.text }}</div>
+      </sc-for>
+
+      <!-- scanlines -->
+      <sc-if value="{{ scanOn }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;inset:0;pointer-events:none;z-index:90;background:repeating-linear-gradient(to bottom, rgba(255,255,255,0.045) 0px, rgba(255,255,255,0.045) 1px, transparent 1px, transparent 3px);"></div>
+      </sc-if>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;launchPacing&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;arcade&quot;,&quot;cinematic&quot;],&quot;default&quot;:&quot;cinematic&quot;,&quot;tsType&quot;:&quot;'arcade'|'cinematic'&quot;,&quot;section&quot;:&quot;Gameplay&quot;},&quot;autoPush&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Gameplay&quot;},&quot;showBgZones&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Gameplay&quot;},&quot;podStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;orbiters&quot;,&quot;beacons&quot;,&quot;containers&quot;,&quot;classic&quot;],&quot;default&quot;:&quot;orbiters&quot;,&quot;tsType&quot;:&quot;'orbiters'|'beacons'|'containers'|'classic'&quot;,&quot;section&quot;:&quot;Look&quot;},&quot;scanlines&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Retro FX&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.SP = null;
+    this.KEY = 'shipit-save-v1';
+    this.REPOS = [
+      { v: 'zippy', label: 'zippy · Node.js' },
+      { v: 'orbit-web', label: 'orbit-web · Next.js' },
+      { v: 'billing-api', label: 'billing-api · Go' },
+      { v: 'docs-site', label: 'docs-site · Static' }
+    ];
+    this.HERO_NAMES = ['CAPT CRASHLOOP', 'SIR SHIPSALOT', 'YAML YETI', 'DUCHESS DEPLOY', 'MERGE LORD', 'KUBECTL KID', 'LIL ROLLBACK', 'POD RACER', 'BOOP.EXE', 'HELMSY', 'TURBO NIMBUS', 'CAPT. KUBE'];
+    this.randOf = (arr) => arr[Math.floor(Math.random() * arr.length)];
+    this.PLANET_SUGGESTIONS = ['PREPROD', 'PLUTO', 'DUCKWORLD', 'SNACK MOON', 'BLORP', 'MORDOR', 'YEET-1', 'PROD (JK)'];
+    this.ORG = 'GG ORGANIZATION'; this.ORG_TAG = 'GG';
+    this.ROCKET_TIERS = [
+      { id: 'rust', name: 'RUSTBUCKET', price: 0, note: 'Trusty starter ship. Smells like cache.', colors: {} },
+      { id: 'swift', name: 'SWIFT MK-II', price: 12, note: '20% faster builds · ' + this.ORG_TAG + ' livery on the hull', colors: { g: '#00bcff', G: '#0069a8', b: '#a2f4fd' } },
+      { id: 'flag', name: 'GOLD FLAGSHIP', price: 25, note: '+25 XP sponsor bonus per launch · ' + this.ORG_TAG + ' livery', colors: { g: '#fdc700', G: '#e17100', b: '#fef9c2', m: '#ffd230' } }
+    ];
+    this.POD_SLOTS = [[52, 44], [132, 58], [84, 118], [162, 124], [44, 158], [120, 172]];
+    this.THRESHOLDS = [100, 300, 600, 1000, 1500, 2200, 3000, 4200, 6000];
+    this.UNLOCKS = { 2: 'AURORA CAPE', 3: 'CROWN HELMET', 4: 'GOLD RUSH SUIT + GOLD KEYBOARD', 5: 'STARLIGHT CAPE' };
+    this.QUESTS = [
+      { id: 'q1', name: 'DEFINE YOUR REPO', desc: 'Register an app from your org', xp: 50 },
+      { id: 'q2', name: 'HELLO, WORLD', desc: 'Complete your first launch', xp: 100 },
+      { id: 'q3', name: 'CREW OF TWO', desc: 'Run 2 replicas of one app', xp: 75 },
+      { id: 'q4', name: 'FLEET COMMANDER', desc: 'Ship a second app', xp: 150 },
+      { id: 'q5', name: 'ZERO DOWNTIME', desc: 'Pull off a blue/green launch', xp: 200 },
+      { id: 'q6', name: 'BIG SPENDER', desc: 'Buy from the Ship Shop', xp: 75 },
+      { id: 'q7', name: 'MULTI-PLANETARY', desc: 'Own a second planet', xp: 150 },
+      { id: 'q8', name: 'STREAK KEEPER', desc: '7 days of green health checks', xp: 300, locked: true }
+    ];
+    this._timers = [];
+    const saved = this.loadSave();
+    this.state = Object.assign({
+      sp: false, screen: 'title', muted: false,
+      hero: { name: '', species: 0, helmet: 1, suit: 0, cape: 1, gadget: 0 },
+      planets: [], apps: [], xp: 0, level: 0, launches: 0, streak: 0,
+      packsOwned: 0, billItems: [], questsDone: {},
+      hasSave: !!saved,
+      planetDraft: { name: '', look: 0, cpu: 10, mem: 10, cost: 0, cls: 'SMALL' }, planetMode: 'onboard',
+      reg: { open: false, repo: '', name: '', cpu: 2, mem: 2, replicas: 2, planetId: '' },
+      launch: null, lu: null, toast: null, floaters: [], flameFlip: false,
+      rockets: ['rust'], activeRocket: 'rust', viewPlanetId: null, viewAppId: null, appBack: 'hq',
+      createMode: 'onboard', friday: null, universeStats: true
+    }, {});
+    this._saved = saved;
+    this.stars1 = this.makeStars(90, 1600, 1200, ['#f3f5f7', '#9fafbc', '#758c9f']);
+    this.stars2 = this.makeStars(34, 1600, 1200, ['#00ff6f', '#74d4ff', '#f3f5f7']);
+  }
+
+  makeStars(n, w, h, colors) {
+    let seed = 42;
+    const rnd = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
+    const out = [];
+    for (let i = 0; i < n; i++) {
+      out.push(Math.round(rnd() * w) + 'px ' + Math.round(rnd() * (h + 400)) + 'px 0 0 ' + colors[Math.floor(rnd() * colors.length)]);
+    }
+    return out.join(',');
+  }
+
+  loadSave() {
+    try {
+      const raw = localStorage.getItem(this.KEY);
+      if (!raw) return null;
+      const d = JSON.parse(raw);
+      return d && d.hero ? d : null;
+    } catch (e) { return null; }
+  }
+  persist() {
+    const s = this.state;
+    try {
+      localStorage.setItem(this.KEY, JSON.stringify({
+        hero: s.hero, planets: s.planets, apps: s.apps.map(a => Object.assign({}, a, { status: a.status === 'live' ? 'live' : a.status })),
+        xp: s.xp, level: s.level, launches: s.launches, streak: s.streak,
+        packsOwned: s.packsOwned, billItems: s.billItems, questsDone: s.questsDone, muted: s.muted,
+        rockets: s.rockets, activeRocket: s.activeRocket
+      }));
+    } catch (e) {}
+  }
+
+  componentDidMount() {
+    window.__shipit = this;
+    const poll = setInterval(() => {
+      if (window.SHIPIT_SPRITES) { this.SP = window.SHIPIT_SPRITES; clearInterval(poll); this.setState({ sp: true }); }
+    }, 60);
+    this._timers.push(poll);
+    this._flameT = setInterval(() => {
+      if (this.state.launch && (this.state.launch.phase === 'liftoff' || this.state.launch.phase === 'land')) {
+        this.setState({ flameFlip: !this.state.flameFlip });
+      }
+    }, 130);
+    this._healthT = setInterval(() => {
+      if (this.state.apps.some(a => a.status === 'live')) {
+        const apps = this.state.apps.map(a => a.status === 'live' ? Object.assign({}, a, { checks: (a.checks || 0) + a.replicas }) : a);
+        this._hticks = (this._hticks || 0) + 1;
+        this.setState({ apps });
+        if (this._hticks % 6 === 0) this.persist();
+      }
+    }, 5000);
+  }
+  componentWillUnmount() { this._timers.forEach(t => { clearInterval(t); clearTimeout(t); }); clearInterval(this._flameT); clearInterval(this._healthT); }
+  later(fn, ms) { const t = setTimeout(fn, ms); this._timers.push(t); return t; }
+
+  // ─── sound ───
+  beep(name) {
+    if (this.state.muted) return;
+    try {
+      if (!this.ac) this.ac = new (window.AudioContext || window.webkitAudioContext)();
+      const ac = this.ac;
+      const SEQ = {
+        coin: [[988, 0.07], [1319, 0.18]],
+        blip: [[520, 0.05]], sel: [[660, 0.06]], tick: [[980, 0.045]],
+        go: [[523, 0.09], [659, 0.09], [784, 0.14]],
+        xp: [[1046, 0.07]], quest: [[659, 0.08], [880, 0.14]],
+        land: [[220, 0.09], [147, 0.14]],
+        levelup: [[523, 0.09], [659, 0.09], [784, 0.09], [1046, 0.09], [1318, 0.2]],
+        buy: [[784, 0.07], [988, 0.07], [1175, 0.16]],
+        deny: [[196, 0.14]]
+      };
+      if (name === 'launch') {
+        const o = ac.createOscillator(), g = ac.createGain();
+        o.type = 'sawtooth'; o.frequency.setValueAtTime(90, ac.currentTime);
+        o.frequency.exponentialRampToValueAtTime(660, ac.currentTime + 1.1);
+        g.gain.setValueAtTime(0.12, ac.currentTime); g.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + 1.2);
+        o.connect(g); g.connect(ac.destination); o.start(); o.stop(ac.currentTime + 1.25);
+        return;
+      }
+      let t = ac.currentTime;
+      (SEQ[name] || SEQ.blip).forEach(n => {
+        const o = ac.createOscillator(), g = ac.createGain();
+        o.type = 'square'; o.frequency.value = n[0];
+        g.gain.setValueAtTime(0.08, t); g.gain.exponentialRampToValueAtTime(0.001, t + n[1]);
+        o.connect(g); g.connect(ac.destination); o.start(t); o.stop(t + n[1] + 0.01);
+        t += n[1] * 0.9;
+      });
+    } catch (e) {}
+  }
+
+  // ─── xp / level ───
+  levelFor(xp) { let l = 0; for (const t of this.THRESHOLDS) if (xp >= t) l++; return l; }
+  addXp(n, opts) {
+    opts = opts || {};
+    const xp = this.state.xp + n;
+    const newLevel = this.levelFor(xp);
+    const fl = { id: Date.now() + Math.random(), text: opts.text || ('+' + n + ' XP'), fg: opts.fg || '#00ff6f', left: (opts.left || (42 + Math.random() * 16)) + '%', top: (opts.top || (30 + Math.random() * 18)) + '%' };
+    const patch = { xp, floaters: [...this.state.floaters, fl] };
+    if (newLevel > this.state.level) { this._pendingLu = newLevel; patch.level = newLevel; }
+    this.setState(patch);
+    this.beep('xp');
+    this.later(() => this.setState({ floaters: this.state.floaters.filter(f => f.id !== fl.id) }), 1600);
+  }
+  maybeLevelUp() {
+    if (this._pendingLu) {
+      const lv = this._pendingLu; this._pendingLu = null;
+      this.setState({ lu: { level: lv, unlock: this.UNLOCKS[lv] || '' } });
+      this.beep('levelup');
+    }
+  }
+  completeQuest(id) {
+    if (this.state.questsDone[id]) return;
+    const q = this.QUESTS.find(x => x.id === id);
+    this.setState({ questsDone: Object.assign({}, this.state.questsDone, { [id]: true }) });
+    this.beep('quest');
+    this.showToast('QUEST COMPLETE!', q.name + '  ·  +' + q.xp + ' XP', '#fdc700');
+    this.addXp(q.xp);
+    this.later(() => this.persist(), 100);
+  }
+  showToast(title, body, bd) {
+    const id = Date.now();
+    this._toastId = id;
+    this.setState({ toast: { title, body, bd: bd || '#00ff6f' } });
+    this.later(() => { if (this._toastId === id) this.setState({ toast: null }); }, 3400);
+  }
+
+  // ─── title ───
+  insertCoin = () => {
+    this.beep('coin');
+    this.setState({
+      packsOwned: 1,
+      billItems: [{ label: 'STARTER APP PACK (10 APPS)', amt: 10 }],
+      hero: Object.assign({}, this.state.hero, { name: this.randOf(this.HERO_NAMES) }),
+      screen: 'create', createMode: 'onboard'
+    });
+  };
+  continueGame = () => {
+    const d = this._saved; if (!d) return;
+    this.beep('sel');
+    const apps = (d.apps || []).map(a => Object.assign({ history: [], checks: 0, deploys: 0, createdAt: Date.now() }, a, { status: a.status === 'building' ? 'ready' : a.status }));
+    const planets = (d.planets || []).map(p => Object.assign({ createdAt: Date.now(), launches: 0, cost: 0 }, p));
+    this.setState(Object.assign({ rockets: ['rust'], activeRocket: 'rust' }, d, { apps, planets, screen: 'hq', hasSave: true, sp: this.state.sp, launch: null, lu: null, toast: null, floaters: [], friday: null, createMode: 'onboard' }));
+    apps.filter(a => a.status === 'watching').forEach(a => this.later(() => this.detectCommit(a.id), 3500 + Math.random() * 2500));
+  };
+  resetSave = () => {
+    try { localStorage.removeItem(this.KEY); } catch (e) {}
+    this._saved = null;
+    this.setState({ hasSave: false });
+    this.beep('deny');
+  };
+  toggleMute = () => { this.setState({ muted: !this.state.muted }); };
+
+  // ─── creator ───
+  avail(list) { return list.map((x, i) => ({ x, i })).filter(o => !o.x.minLevel || this.state.level >= o.x.minLevel); }
+  cycle(slot, dir) {
+    const S = this.SP; if (!S) return;
+    const lists = { species: S.SPECIES, helmet: S.HELMETS, suit: S.SUITS, cape: S.CAPES, gadget: S.GADGETS };
+    const av = this.avail(lists[slot]);
+    const cur = av.findIndex(o => o.i === this.state.hero[slot]);
+    const next = av[(cur + dir + av.length) % av.length];
+    this.setState({ hero: Object.assign({}, this.state.hero, { [slot]: next.i }) });
+    this.beep('sel');
+  }
+  randomizeAll = () => {
+    const S = this.SP; if (!S) return;
+    const pick = (list) => { const av = this.avail(list); return av[Math.floor(Math.random() * av.length)].i; };
+    this.setState({
+      hero: Object.assign({}, this.state.hero, {
+        species: pick(S.SPECIES), helmet: pick(S.HELMETS), suit: pick(S.SUITS), cape: pick(S.CAPES), gadget: pick(S.GADGETS)
+      })
+    });
+    this.beep('coin');
+  };
+  randomName = () => {
+    const n = this.HERO_NAMES[Math.floor(Math.random() * this.HERO_NAMES.length)];
+    this.setState({ hero: Object.assign({}, this.state.hero, { name: n }) });
+    this.beep('blip');
+  };
+  setHeroName = (e) => this.setState({ hero: Object.assign({}, this.state.hero, { name: e.target.value.toUpperCase() }) });
+  confirmHero = () => {
+    if (!this.state.hero.name.trim()) { this.beep('deny'); return; }
+    if (this.state.createMode === 'wardrobe') {
+      this.beep('go');
+      this.setState({ screen: 'hq' });
+      this.showToast('LOOKING SHARP!', this.state.hero.name + ' got a glow-up.', '#00ff6f');
+      this.later(() => this.persist(), 100);
+      return;
+    }
+    this.beep('go');
+    this.setState({ screen: 'planet', planetMode: 'onboard', planetDraft: { name: this.randOf(this.PLANET_SUGGESTIONS), look: Math.floor(Math.random() * 5), cpu: 10, mem: 10, cost: 0, cls: 'SMALL' } });
+  };
+
+  // ─── planet claim ───
+  setPlanetName = (e) => this.setState({ planetDraft: Object.assign({}, this.state.planetDraft, { name: e.target.value.toUpperCase() }) });
+  randomPlanetName = () => {
+    this.beep('blip');
+    this.setState({ planetDraft: Object.assign({}, this.state.planetDraft, { name: this.randOf(this.PLANET_SUGGESTIONS) }) });
+  };
+  cycleLook = (dir) => {
+    const n = (this.state.planetDraft.look + dir + 5) % 5;
+    this.setState({ planetDraft: Object.assign({}, this.state.planetDraft, { look: n }) });
+    this.beep('sel');
+  };
+  claimPlanet = () => {
+    const d = this.state.planetDraft;
+    if (!d.name.trim()) { this.beep('deny'); return; }
+    const planet = { id: 'p' + Date.now(), name: d.name, look: d.look, cpu: d.cpu, mem: d.mem, cls: d.cls, createdAt: Date.now(), launches: 0, cost: d.cost || 0 };
+    const billItems = d.cost ? [...this.state.billItems, { label: d.cls + ' PLANET · ' + d.name, amt: d.cost }] : this.state.billItems;
+    const planets = [...this.state.planets, planet];
+    this.beep('go');
+    this.setState({ planets, billItems, screen: 'hq' });
+    this.showToast('PLANET CLAIMED!', 'Welcome to ' + d.name + ' — ' + d.cpu + ' CPU · ' + d.mem + ' GB of pristine wilderness.', '#00ff6f');
+    if (this.state.planetMode === 'shop') {
+      this.completeQuest('q6');
+      if (planets.length >= 2) this.completeQuest('q7');
+    }
+    this.later(() => this.persist(), 200);
+  };
+
+  // ─── register ───
+  usage(planetId, exceptAppId) {
+    let cpu = 0, mem = 0;
+    this.state.apps.forEach(a => {
+      if (a.planetId !== planetId) return;
+      if (exceptAppId && a.id === exceptAppId) return;
+      cpu += a.cpu * a.replicas; mem += a.mem * a.replicas;
+    });
+    return { cpu, mem };
+  }
+  tokens() { return this.state.packsOwned * 10 - this.state.apps.length; }
+  openRegister = () => {
+    if (this.tokens() <= 0) { this.beep('deny'); this.showToast('OUT OF APP TOKENS!', 'Grab another 10-pack at the Ship Shop.', '#fb2c37'); return; }
+    this.beep('sel');
+    this.setState({ reg: { open: true, repo: '', name: '', cpu: 2, mem: 2, replicas: 2, planetId: this.state.planets[0] ? this.state.planets[0].id : '' } });
+  };
+  closeRegister = () => this.setState({ reg: Object.assign({}, this.state.reg, { open: false }) });
+  setReg(k, v) {
+    const reg = Object.assign({}, this.state.reg, { [k]: v });
+    const maxR = this.regMaxReplicas(reg);
+    if (reg.replicas > maxR) reg.replicas = maxR;
+    this.setState({ reg });
+  }
+  regMaxReplicas(reg) {
+    const p = this.state.planets.find(x => x.id === reg.planetId);
+    if (!p) return 8;
+    const u = this.usage(p.id);
+    return Math.max(1, Math.min(8, Math.floor(Math.min((p.cpu - u.cpu) / reg.cpu, (p.mem - u.mem) / reg.mem))));
+  }
+  regFits() {
+    const r = this.state.reg;
+    const p = this.state.planets.find(x => x.id === r.planetId);
+    if (!p) return { ok: false };
+    const u = this.usage(p.id);
+    const need = { cpu: r.cpu * r.replicas, mem: r.mem * r.replicas };
+    return { ok: u.cpu + need.cpu <= p.cpu && u.mem + need.mem <= p.mem, u, need, p };
+  }
+  submitRegister = () => {
+    const r = this.state.reg;
+    if (!r.repo || !r.name.trim()) { this.beep('deny'); return; }
+    const fit = this.regFits();
+    if (!fit.ok) { this.beep('deny'); this.showToast('PLANET FULL!', 'Not enough resources. Upgrade or buy a planet at the Ship Shop.', '#fb2c37'); return; }
+    const app = {
+      id: 'a' + Date.now(), name: r.name.toLowerCase().replace(/[^a-z0-9-]/g, '-'), repo: 'gg/' + r.repo, branch: 'main',
+      cpu: r.cpu, mem: r.mem, replicas: r.replicas, planetId: r.planetId,
+      status: 'watching', bg: false, launched: false,
+      createdAt: Date.now(), history: [], checks: 0, deploys: 0,
+      url: r.name.toLowerCase().replace(/[^a-z0-9-]/g, '-') + '-prod.gg.ship.kubefunk.net'
+    };
+    this.setState({ apps: [...this.state.apps, app], reg: Object.assign({}, r, { open: false }) });
+    this.completeQuest('q1');
+    if ((this.props.autoPush ?? true)) {
+      this.later(() => this.detectCommit(app.id), 4200);
+    }
+    this.later(() => this.persist(), 300);
+  };
+  detectCommit(appId) {
+    const a = this.state.apps.find(x => x.id === appId);
+    if (!a || a.status !== 'watching') return;
+    this.mutApp(appId, { status: 'ready', commit: this.sha(), msg: 'feat: make it awesome' });
+    this.beep('quest');
+    this.showToast('COMMIT DETECTED!', a.repo + ' @ main — your rocket awaits, hero.', '#00bcff');
+    this.addXp(10);
+  }
+  pushCommit(appId) {
+    this.beep('blip');
+    this.mutApp(appId, { status: 'ready', commit: this.sha(), msg: 'fix: moar pixels' });
+    this.showToast('COMMIT DETECTED!', 'Fresh code on main. Prep for launch!', '#00bcff');
+    this.addXp(10);
+  }
+  sha() { return Math.random().toString(16).slice(2, 9); }
+  mutApp(id, patch) { this.setState({ apps: this.state.apps.map(a => a.id === id ? Object.assign({}, a, patch) : a) }); }
+
+  setReplicas(id, d) {
+    const a = this.state.apps.find(x => x.id === id); if (!a) return;
+    const next = a.replicas + d;
+    if (next < 1 || next > 6) { this.beep('deny'); return; }
+    if (d > 0) {
+      const p = this.state.planets.find(x => x.id === a.planetId);
+      const u = this.usage(a.planetId, a.id);
+      if (u.cpu + a.cpu * next > p.cpu || u.mem + a.mem * next > p.mem) {
+        this.beep('deny');
+        this.showToast('PLANET FULL!', p.name + ' is maxed out. The Ship Shop sells bigger real estate.', '#fb2c37');
+        return;
+      }
+    }
+    this.beep('sel');
+    this.mutApp(id, { replicas: next });
+    if (next >= 2 && this.state.apps.find(x => x.id === id).launched) this.completeQuest('q3');
+    this.later(() => this.persist(), 100);
+  }
+  toggleBg(id) {
+    const a = this.state.apps.find(x => x.id === id);
+    this.beep('sel');
+    this.mutApp(id, { bg: !a.bg });
+    if (!a.bg) this.showToast('BLUE/GREEN ARMED', 'Next launch lands in the green zone, then traffic swaps. Zero downtime, baby.', '#74d4ff');
+  }
+
+  // ─── launch cinematic ───
+  startLaunch(appId) {
+    const a = this.state.apps.find(x => x.id === appId); if (!a) return;
+    let f = (this.props.launchPacing ?? 'arcade') === 'cinematic' ? 2.4 : 1;
+    if (this.state.activeRocket === 'swift') f *= 0.8;
+    this._f = f;
+    this.beep('go');
+    this.setState({ launch: { appId, phase: 'pills', logs: [], tests: [], count: '', pods: 0, healthy: 0, swap: false } });
+    this.mutApp(appId, { status: 'building' });
+    const L = (ph, at, fn) => this.later(() => { if (!this.state.launch) return; this.setLaunch({ phase: ph }); if (fn) fn(); }, at * f);
+    const steps = [
+      ['pills', 1800, () => { this.beep('blip'); this.later(() => this.addXp(5, { text: 'PROTEIN PILLS PACKED ✓', top: 58 }), 900 * f); }],
+      ['helmet', 1600, () => { this.beep('tick'); this.later(() => this.addXp(5, { text: 'HELMET ON ✓', top: 54 }), 600 * f); }],
+      ['walk', 2400, () => this.beep('blip')],
+      ['board', 1500, () => { this.beep('tick'); this.later(() => this.addXp(10, { text: 'CREW ABOARD ✓', top: 52 }), 700 * f); }],
+      ['hatch', 1100, () => this.beep('tick')],
+      ['build', 5200, () => this.runBuild(f)],
+      ['tests', 4400, () => this.runTests(f)],
+      ['go', 0, () => {
+        this.beep('go');
+        this.later(() => this.pressLaunch(true), 9000 * f);
+      }]
+    ];
+    let t = 0;
+    steps.forEach(st => {
+      if (st[0] === 'pills') { if (st[2]) st[2](); } else { L(st[0], t, st[2]); }
+      t += st[1];
+    });
+  }
+  pressLaunch = (auto) => {
+    const l = this.state.launch; if (!l || l.phase !== 'go') return;
+    const f = this._f || 1;
+    const a = this.launchApp(); if (!a) return;
+    if (auto === true) this.showToast('AUTOPILOT ENGAGED', 'Hero hesitated. The rocket did not.', '#00bcff');
+    this.beep('tick');
+    this.setLaunch({ phase: 'count' });
+    this.runCount(f);
+    const L = (ph, at, fn) => this.later(() => { if (!this.state.launch) return; this.setLaunch({ phase: ph }); if (fn) fn(); }, at * f);
+    let t = 3200;
+    L('liftoff', t, () => {
+      this.playLaunchJingle(); this.addXp(100, { top: 40 });
+      if (this.state.activeRocket === 'flag') this.later(() => this.addXp(25, { text: '+25 SPONSOR', top: 32, fg: '#fdc700' }), 800);
+    });
+    t += 3000;
+    L('land', t, () => this.beep('land'));
+    t += 2600;
+    L('unpack', t, () => this.runUnpack(f));
+    t += a.replicas * 900 + 1400;
+    L('serve', t, () => this.runServe());
+    t += 3000;
+    this.later(() => this.finishLaunch(), t * f);
+  };
+  playLaunchJingle() {
+    if (this.state.muted) return;
+    try {
+      if (!this.ac) this.ac = new (window.AudioContext || window.webkitAudioContext)();
+      const ac = this.ac;
+      const o = ac.createOscillator(), g = ac.createGain();
+      o.type = 'sawtooth'; o.frequency.setValueAtTime(70, ac.currentTime);
+      o.frequency.exponentialRampToValueAtTime(280, ac.currentTime + 1.6);
+      g.gain.setValueAtTime(0.07, ac.currentTime); g.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + 1.7);
+      o.connect(g); g.connect(ac.destination); o.start(); o.stop(ac.currentTime + 1.75);
+      const seq = [[330, 0.11], [392, 0.11], [494, 0.11], [587, 0.13], [659, 0.16], [784, 0.2], [988, 0.3]];
+      let t = ac.currentTime + 0.15;
+      seq.forEach(n => {
+        const o2 = ac.createOscillator(), g2 = ac.createGain();
+        o2.type = 'square'; o2.frequency.value = n[0];
+        g2.gain.setValueAtTime(0.075, t); g2.gain.exponentialRampToValueAtTime(0.001, t + n[1]);
+        o2.connect(g2); g2.connect(ac.destination); o2.start(t); o2.stop(t + n[1] + 0.01);
+        t += n[1] * 0.92;
+      });
+      [[1318, 0.12], [1568, 0.24]].forEach(n => {
+        const o3 = ac.createOscillator(), g3 = ac.createGain();
+        o3.type = 'triangle'; o3.frequency.value = n[0];
+        g3.gain.setValueAtTime(0.05, t); g3.gain.exponentialRampToValueAtTime(0.001, t + n[1]);
+        o3.connect(g3); g3.connect(ac.destination); o3.start(t); o3.stop(t + n[1] + 0.01);
+        t += n[1] * 0.9;
+      });
+    } catch (e) {}
+  }
+  setLaunch(patch) { if (this.state.launch) this.setState({ launch: Object.assign({}, this.state.launch, patch) }); }
+  runBuild(f) {
+    const a = this.launchApp();
+    const lines = [
+      '> CLONING ' + a.repo + ' @ main',
+      '> COMMIT ' + (a.commit || this.sha()) + " '" + (a.msg || 'feat: make it awesome') + "'",
+      '> BUILDPACK DETECTED — NICE CODE, HERO',
+      '> RESTORING CACHE...',
+      '> COMPILING PRODUCTION BUNDLE...',
+      '> BAKING OCI IMAGE LAYERS...',
+      '> IMAGE sha256:ea71feff ✓',
+      '> PUSH → CLUSTER REGISTRY ✓',
+      '> GITOPS SYNC VIA ARGO ✓',
+      '> BUILD GREEN — 4M12S ✓'
+    ];
+    lines.forEach((t, i) => this.later(() => {
+      if (!this.state.launch) return;
+      this.setLaunch({ logs: [...this.state.launch.logs, t].slice(-6) });
+      this.beep('tick');
+      if (i === lines.length - 1) this.addXp(20, { top: 62 });
+    }, i * 460 * f));
+  }
+  runTests(f) {
+    const names = ['UNIT TESTS', 'CONTAINER SCAN', 'HEALTH PROBE', 'LAUNCH CODES'];
+    names.forEach((n, i) => {
+      this.later(() => { if (this.state.launch) { this.setLaunch({ tests: [...this.state.launch.tests, n] }); this.beep('quest'); this.addXp(15, { top: 58, left: 62 }); } }, i * 950 * f);
+    });
+  }
+  runCount(f) {
+    ['3', '2', '1'].forEach((c, i) => this.later(() => { if (this.state.launch) { this.setLaunch({ count: c }); this.beep('tick'); } }, i * 950 * f));
+  }
+  runUnpack(f) {
+    const a = this.launchApp(); if (!a) return;
+    for (let i = 0; i < a.replicas; i++) {
+      this.later(() => { if (this.state.launch) { this.setLaunch({ pods: this.state.launch.pods + 1 }); this.beep('land'); } }, i * 850 * f);
+      this.later(() => { if (this.state.launch) { this.setLaunch({ healthy: this.state.launch.healthy + 1 }); this.addXp(25, { top: 46 }); } }, (i * 850 + 500) * f);
+    }
+  }
+  runServe() {
+    const a = this.launchApp(); if (!a) return;
+    if (a.bg && a.launched) {
+      this.setLaunch({ swap: true });
+      this.later(() => { this.showToast('TRAFFIC SWAPPED → GREEN', 'Zero downtime achieved. The crowd goes wild.', '#00ff6f'); this.addXp(50, { top: 42 }); this.completeQuest('q5'); }, 900 * this._f);
+    }
+    this.beep('levelup');
+  }
+  launchApp() { return this.state.launch ? this.state.apps.find(x => x.id === this.state.launch.appId) : null; }
+  finishLaunch() {
+    const l = this.state.launch; if (!l) return;
+    const a = this.state.apps.find(x => x.id === l.appId); if (!a) return;
+    const dur = this.genDuration();
+    const entry = { sha: a.commit || this.sha(), msg: a.msg || 'feat: make it awesome', result: 'SUCCESS', dur, at: Date.now() };
+    const apps = this.state.apps.map(x => x.id === a.id ? Object.assign({}, x, {
+      status: 'live', launched: true, lastLaunch: Date.now(), buildTime: dur,
+      imageSha: 'sha256:' + this.sha() + this.sha().slice(0, 5),
+      deploys: (x.deploys || 0) + 1, history: [entry].concat(x.history || []).slice(0, 8)
+    }) : x);
+    const planets = this.state.planets.map(p => p.id === a.planetId ? Object.assign({}, p, { launches: (p.launches || 0) + 1 }) : p);
+    const launches = this.state.launches + 1;
+    this.setState({ launch: null, apps, planets, launches, streak: Math.max(1, this.state.streak) });
+    this.showToast('★ LAUNCH SUCCESSFUL ★', a.name + ' is LIVE and healthy on ' + this.planetName(a.planetId) + '!', '#00ff6f');
+    this.completeQuest('q2');
+    if (a.replicas >= 2) this.completeQuest('q3');
+    if (apps.filter(x => x.launched).length >= 2) this.completeQuest('q4');
+    if (new Date().getDay() === 5) {
+      this.later(() => {
+        this.addXp(100, { text: '+100 FRIDAY' });
+        this.setState({ friday: { app: a.name } });
+        this.beep('levelup');
+        this.persist();
+      }, 900);
+    } else {
+      this.later(() => { this.maybeLevelUp(); this.persist(); }, 700);
+    }
+  }
+  closeFriday = () => {
+    this.beep('coin');
+    this.setState({ friday: null });
+    this.later(() => this.maybeLevelUp(), 250);
+    this.persist();
+  };
+  skipLaunch = () => {
+    const l = this.state.launch; if (!l) return;
+    this._timers.forEach(t => clearTimeout(t));
+    this._timers = [];
+    const a = this.state.apps.find(x => x.id === l.appId);
+    // grant remaining xp in one lump
+    this.addXp(230 + a.replicas * 25);
+    this.finishLaunch();
+  };
+  planetName(id) { const p = this.state.planets.find(x => x.id === id); return p ? p.name : '?'; }
+
+  // ─── shop ───
+  openShop = () => { this.beep('sel'); this.setState({ screen: 'shop' }); };
+  closeShop = () => { this.beep('blip'); this.setState({ screen: 'hq' }); };
+  buyPack = () => {
+    this.beep('buy');
+    this.setState({ packsOwned: this.state.packsOwned + 1, billItems: [...this.state.billItems, { label: 'APP 10-PACK', amt: 10 }] });
+    this.showToast('PURCHASED!', '+10 app tokens. Ship recklessly (responsibly).', '#fdc700');
+    this.completeQuest('q6');
+    this.later(() => this.persist(), 100);
+  };
+  buyPlanet(cls, cpu, mem, cost) {
+    this.beep('buy');
+    this.setState({ screen: 'planet', planetMode: 'shop', planetDraft: { name: this.randOf(this.PLANET_SUGGESTIONS), look: Math.floor(Math.random() * 5), cpu, mem, cost, cls } });
+  }
+  buyHours = () => {
+    if (this.state.level < 5) { this.beep('deny'); return; }
+    this.beep('buy');
+    this.setState({ billItems: [...this.state.billItems, { label: 'KONSTRUCT CREW · 5 HOURS', amt: 1000, once: true }] });
+    this.showToast('CREW BOOKED!', 'Opening the Konstruct contact page in a new tab — real humans will take it from there.', '#fdc700');
+    this.completeQuest('q6');
+    this.later(() => this.persist(), 100);
+  };
+  buySupport = () => {
+    this.beep('buy');
+    this.setState({ billItems: [...this.state.billItems, { label: 'SOLIDARITY · FREE JOHN DIETZ', amt: 1, once: true }] });
+    this.showToast("YOU'RE A REAL ONE", 'Your $1 goes straight to the "John did nothing wrong" fund.', '#fdc700');
+    this.completeQuest('q6');
+    this.later(() => this.persist(), 100);
+  };
+  bookDietz = () => {
+    this.beep('coin');
+    this.showToast('BEST DEAL IN THE GALAXY', "Opening John's calendar in a new tab — a cofounder meeting for $0.", '#00ff6f');
+  };
+  buyUpgrade = () => {
+    const p = this.state.planets[0]; if (!p) return;
+    this.beep('buy');
+    this.setState({
+      planets: this.state.planets.map(x => x.id === p.id ? Object.assign({}, x, { cpu: x.cpu + 10, mem: x.mem + 10, cls: 'UPGRADED' }) : x),
+      billItems: [...this.state.billItems, { label: 'PLANET UPGRADE · ' + p.name, amt: 7 }]
+    });
+    this.showToast('PLANET UPGRADED!', p.name + ' now has +10 CPU · +10 GB. Room to grow.', '#fdc700');
+    this.completeQuest('q6');
+    this.later(() => this.persist(), 100);
+  };
+  closeLu = () => { this.beep('coin'); this.setState({ lu: null }); this.persist(); };
+
+  // ─── details / wardrobe / rockets ───
+  visitPlanet(id) { this.beep('sel'); this.setState({ screen: 'planetDetail', viewPlanetId: id }); }
+  backFromPlanet = () => { this.beep('blip'); this.setState({ screen: 'hq' }); };
+  openAppStats(id, from) { this.beep('sel'); this.setState({ screen: 'appDetail', viewAppId: id, appBack: from }); }
+  backFromApp = () => { this.beep('blip'); this.setState({ screen: this.state.appBack === 'planetDetail' ? 'planetDetail' : 'hq' }); };
+  openWardrobe = () => { this.beep('sel'); this.setState({ screen: 'create', createMode: 'wardrobe' }); };
+  rocketColors(id) {
+    const t = this.ROCKET_TIERS.find(x => x.id === id) || this.ROCKET_TIERS[0];
+    return Object.assign({}, this.SP.ROCKET.colors, t.colors);
+  }
+  equipRocket(id) {
+    if (this.state.rockets.indexOf(id) === -1) return;
+    this.beep('sel');
+    this.setState({ activeRocket: id });
+    const t = this.ROCKET_TIERS.find(x => x.id === id);
+    this.showToast('ROCKET EQUIPPED', t.name + ' rolled onto the pad.', '#00ff6f');
+    this.later(() => this.persist(), 100);
+  }
+  buyRocket(id) {
+    const t = this.ROCKET_TIERS.find(x => x.id === id); if (!t) return;
+    if (this.state.rockets.indexOf(id) !== -1) { this.equipRocket(id); return; }
+    this.beep('buy');
+    this.setState({
+      rockets: [...this.state.rockets, id], activeRocket: id,
+      billItems: [...this.state.billItems, { label: 'ROCKET · ' + t.name, amt: t.price }]
+    });
+    this.showToast('NEW ROCKET IN THE HANGAR!', t.name + ' — ' + this.ORG_TAG + ' livery painted on the hull.', '#fdc700');
+    this.completeQuest('q6');
+    this.later(() => this.persist(), 100);
+  }
+  // ─── app graphic (pod style) ───
+  podStyle() { return this.state.podStyleOverride || (this.props.podStyle ?? 'orbiters'); }
+  podSpriteDef() {
+    const S = this.SP, st = this.podStyle();
+    return st === 'beacons' ? S.BEACON : (st === 'containers' ? S.CONTAINERS : (st === 'orbiters' ? S.SAT : S.POD));
+  }
+  // Positions `count` app markers for a planet rendered in a box×box area.
+  podsFor(count, box, scale) {
+    const S = this.SP, st = this.podStyle();
+    const items = [];
+    if (st === 'orbiters') {
+      const tight = box <= 90;
+      const fa = tight ? 0.58 : 0.72, fb = tight ? 0.24 : 0.30;
+      const angles = [200, 340, 25, 155, 250, 60];
+      const rot = -14 * Math.PI / 180;
+      const cx = box / 2, cy = box * 0.45;
+      for (let i = 0; i < Math.min(count, 6); i++) {
+        const t = angles[i] * Math.PI / 180;
+        const ex = box * fa * Math.cos(t), ey = box * fb * Math.sin(t);
+        const rx = ex * Math.cos(rot) - ey * Math.sin(rot), ry = ex * Math.sin(rot) + ey * Math.cos(rot);
+        items.push({ left: Math.round(cx + rx - 5 * scale) + 'px', top: Math.round(cy + ry - 3 * scale) + 'px', bs: S.shadow(S.SAT.rows, S.SAT.colors, scale, 0, 0) });
+      }
+      return {
+        ring: true, items,
+        ringW: Math.round(box * fa * 2.08) + 'px', ringH: Math.round(box * fb * 2.08) + 'px',
+        ringLeft: Math.round(cx - box * fa * 1.04) + 'px', ringTop: Math.round(cy - box * fb * 1.04) + 'px'
+      };
+    }
+    const spr = this.podSpriteDef();
+    const f = box / 240;
+    for (let i = 0; i < Math.min(count, 6); i++) {
+      items.push({ left: Math.round(this.POD_SLOTS[i][0] * f) + 'px', top: Math.round(this.POD_SLOTS[i][1] * f) + 'px', bs: S.shadow(spr.rows, spr.colors, scale, 0, 0) });
+    }
+    return { ring: false, items, ringW: '0px', ringH: '0px', ringLeft: '0px', ringTop: '0px' };
+  }
+
+  // ─── universe ───
+  openUniverse = () => { this.beep('go'); this.setState({ screen: 'universe' }); };
+  closeUniverse = () => { this.beep('blip'); this.setState({ screen: 'hq' }); };
+  toggleUniverseStats = () => { this.beep('sel'); this.setState({ universeStats: !this.state.universeStats }); };
+  aggStats() {
+    const s = this.state;
+    return {
+      appsLive: s.apps.filter(a => a.launched).length,
+      launches: s.launches,
+      checks: s.apps.reduce((t, a) => t + (a.checks || 0), 0),
+      pods: s.apps.filter(a => a.launched).reduce((t, a) => t + a.replicas, 0)
+    };
+  }
+  shareText() {
+    const g = this.aggStats();
+    return 'The ' + this.ORG + ' universe on Konstruct: ' + g.appsLive + ' apps live · ' + g.launches + ' launches · ' + g.checks + ' health checks passed · 100.00% uptime. Shipped with SHIP IT! ★';
+  }
+  shareUniverse = async () => {
+    this.beep('go');
+    try {
+      const cv = await this.renderCard();
+      cv.toBlob(async (blob) => {
+        if (!blob) return;
+        if (this._shareUrl) URL.revokeObjectURL(this._shareUrl);
+        this._shareBlob = blob;
+        this._shareUrl = URL.createObjectURL(blob);
+        let copied = false;
+        try { await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]); copied = true; } catch (err) {}
+        this.setState({ share: { url: this._shareUrl, copied } });
+      }, 'image/png');
+    } catch (err) {
+      this.showToast('CAPTURE FAILED', 'Try again in a second, hero.', '#fb2c37');
+    }
+  };
+  closeShare = () => { this.beep('blip'); this.setState({ share: null }); };
+  copyShareImage = async () => {
+    try {
+      await navigator.clipboard.write([new ClipboardItem({ 'image/png': this._shareBlob })]);
+      this.beep('coin');
+      this.setState({ share: Object.assign({}, this.state.share, { copied: true }) });
+    } catch (e) {
+      this.beep('deny');
+      this.showToast('CLIPBOARD BLOCKED', 'Use SAVE PNG instead and attach it manually.', '#fb2c37');
+    }
+  };
+  downloadShare = () => {
+    if (!this._shareUrl) return;
+    const a = document.createElement('a');
+    a.href = this._shareUrl; a.download = 'my-konstruct-universe.png'; a.click();
+    this.beep('blip');
+  };
+  copyShareText = async () => {
+    try { await navigator.clipboard.writeText(this.shareText()); this.beep('coin'); this.showToast('CAPTION COPIED', 'Paste it alongside your image.', '#00ff6f'); }
+    catch (e) { this.beep('deny'); }
+  };
+  async renderCard() {
+    const S = this.SP, s = this.state, statsOn = s.universeStats;
+    try { await document.fonts.load("26px 'Press Start 2P'"); await document.fonts.load("11px 'Press Start 2P'"); } catch (e) {}
+    const W = 1200, H = 630;
+    const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+    const x = cv.getContext('2d');
+    const rr = (bx, by, bw, bh, r) => { if (x.roundRect) { x.beginPath(); x.roundRect(bx, by, bw, bh, r); } else { x.beginPath(); x.rect(bx, by, bw, bh); } };
+    x.fillStyle = '#0b0e10'; x.fillRect(0, 0, W, H);
+    let seed = 7; const rnd = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
+    for (let i = 0; i < 140; i++) {
+      x.fillStyle = ['#f3f5f7', '#9fafbc', '#00ff6f', '#74d4ff'][Math.floor(rnd() * 4)];
+      x.globalAlpha = 0.35 + rnd() * 0.65;
+      x.fillRect(Math.floor(rnd() * W), Math.floor(rnd() * H), 2, 2);
+    }
+    x.globalAlpha = 1;
+    const px = (rows, colors, sc, ox, oy) => {
+      for (let ry = 0; ry < rows.length; ry++) {
+        const r = rows[ry];
+        for (let rx = 0; rx < r.length; rx++) {
+          const ch = r[rx]; if (ch === '.' || ch === ' ') continue;
+          const c = colors[ch]; if (!c) continue;
+          x.fillStyle = c; x.fillRect(ox + rx * sc, oy + ry * sc, sc, sc);
+        }
+      }
+    };
+    // title block
+    x.textAlign = 'left';
+    x.fillStyle = '#05df72'; x.font = "12px 'Press Start 2P', monospace"; x.fillText('KONSTRUCT PRESENTS', 48, 58);
+    x.fillStyle = '#f3f5f7'; x.font = "25px 'Press Start 2P', monospace"; x.fillText('THE ' + this.ORG + ' UNIVERSE', 48, 100);
+    x.fillStyle = '#758c9f'; x.font = '15px Inter, sans-serif';
+    x.fillText('One hero. ' + s.planets.length + ' planet' + (s.planets.length === 1 ? '' : 's') + '. Zero pipelines written by hand.', 48, 130);
+    // hero top-right
+    const drawHero = (hx, hy, sc) => {
+      const h = s.hero;
+      const suitRows = S.SUIT_ROWS || [];
+      const cape = S.CAPES[h.cape] || S.CAPES[0];
+      if (cape.rows.length) px(cape.rows, cape.colors, sc, hx + 3 * sc, hy + 14 * sc);
+      const spD = S.SPECIES[h.species] || S.SPECIES[0];
+      px(spD.rows, spD.colors, sc, hx + 4 * sc, hy + spD.oy * sc);
+      const suit = S.SUITS[h.suit] || S.SUITS[0];
+      px(suitRows, suit.colors, sc, hx + 4 * sc, hy + 15 * sc);
+      const hel = S.HELMETS[h.helmet] || S.HELMETS[0];
+      if (hel.rows.length) px(hel.rows, hel.colors, sc, hx + hel.ox * sc, hy + hel.oy * sc);
+      const gad = S.GADGETS[h.gadget] || S.GADGETS[0];
+      if (gad.rows.length) px(gad.rows, gad.colors, sc, hx + gad.ox * sc, hy + gad.oy * sc);
+    };
+    drawHero(1040, 36, 5);
+    x.textAlign = 'center';
+    x.fillStyle = '#f3f5f7'; x.font = "10px 'Press Start 2P', monospace"; x.fillText(s.hero.name, 1095, 186);
+    x.fillStyle = '#00ff6f'; x.fillText('LV ' + s.level + ' HERO', 1095, 206);
+    // planets
+    const n = Math.max(1, s.planets.length);
+    s.planets.forEach((p, i) => {
+      const sc = 6, pw = 20 * sc;
+      const cxp = (W / (n + 1)) * (i + 1);
+      const pyy = 320 + (i % 2) * 26;
+      const look = S.PLANET_LOOKS[p.look] || S.PLANET_LOOKS[0];
+      px(S.PLANET_ROWS, look.colors, sc, cxp - pw / 2, pyy);
+      const appsOn = s.apps.filter(a => a.planetId === p.id && a.launched);
+      const podsLive = appsOn.reduce((t, a) => t + a.replicas, 0);
+      const st = this.podStyle();
+      if (st === 'orbiters' && podsLive) {
+        const pcx = cxp, pcy = pyy + 20 * sc * 0.45;
+        x.save(); x.translate(pcx, pcy); x.rotate(-14 * Math.PI / 180);
+        x.strokeStyle = '#3b4954'; x.lineWidth = 1.5; x.setLineDash([5, 5]);
+        x.beginPath(); x.ellipse(0, 0, 20 * sc * 0.75, 20 * sc * 0.31, 0, 0, Math.PI * 2); x.stroke();
+        x.restore(); x.setLineDash([]);
+        const angles = [200, 340, 25, 155, 250, 60], rot = -14 * Math.PI / 180;
+        for (let pi = 0; pi < Math.min(podsLive, 6); pi++) {
+          const t = angles[pi] * Math.PI / 180;
+          const ex = 20 * sc * 0.72 * Math.cos(t), ey = 20 * sc * 0.30 * Math.sin(t);
+          const rx2 = ex * Math.cos(rot) - ey * Math.sin(rot), ry2 = ex * Math.sin(rot) + ey * Math.cos(rot);
+          px(S.SAT.rows, S.SAT.colors, 2, pcx + rx2 - 10, pcy + ry2 - 6);
+        }
+      } else {
+        const spr = this.podSpriteDef();
+        this.POD_SLOTS.slice(0, Math.min(podsLive, 6)).forEach(sl => {
+          px(spr.rows, spr.colors, 2, cxp - pw / 2 + sl[0] * 0.5, pyy + sl[1] * 0.5);
+        });
+      }
+      x.fillStyle = '#f3f5f7'; x.font = "11px 'Press Start 2P', monospace"; x.fillText(p.name, cxp, pyy + 19 * sc + 30);
+      if (appsOn.length) {
+        const lines = appsOn.slice(0, 2);
+        const lh = statsOn ? 42 : 26;
+        const bh = 16 + lines.length * lh, bw = 344;
+        const bx = Math.min(Math.max(cxp - bw / 2, 16), W - bw - 16), by = pyy - bh - 36;
+        x.fillStyle = '#3b4954'; x.fillRect(cxp - 2, by + bh, 4, pyy - (by + bh) + 10);
+        x.fillStyle = '#151b1e'; x.strokeStyle = '#00ff6f'; x.lineWidth = 2;
+        rr(bx, by, bw, bh, 6); x.fill(); x.stroke();
+        lines.forEach((a, j) => {
+          const ly = by + 28 + j * lh;
+          x.fillStyle = '#00ff6f'; x.font = '13px "Reddit Mono", monospace';
+          x.fillText('▲ ' + a.url, cxp, ly);
+          if (statsOn) {
+            x.fillStyle = '#9fafbc'; x.font = '11px Inter, sans-serif';
+            x.fillText('UPT 100% · ' + (a.checks || 0) + ' CHECKS · ' + (a.deploys || 0) + ' DEPLOYS · ' + a.replicas + ' PODS', cxp, ly + 17);
+          }
+        });
+      }
+    });
+    // footer band
+    x.fillStyle = '#151b1e'; x.fillRect(0, H - 88, W, 88);
+    x.fillStyle = '#263237'; x.fillRect(0, H - 88, W, 2);
+    x.textAlign = 'left';
+    if (statsOn) {
+      const g = this.aggStats();
+      const cells = [
+        [String(g.appsLive), 'APPS LIVE', '#00ff6f'],
+        [String(g.launches), 'LAUNCHES', '#f3f5f7'],
+        [String(g.checks), 'HEALTH CHECKS', '#00bcff'],
+        ['100.00%', 'UPTIME', '#00ff6f'],
+        ['LV ' + s.level, 'HERO', '#fdc700']
+      ];
+      let cxx = 48;
+      cells.forEach(c => {
+        x.fillStyle = c[2]; x.font = "15px 'Press Start 2P', monospace"; x.fillText(c[0], cxx, H - 46);
+        x.fillStyle = '#758c9f'; x.font = '11px Inter, sans-serif'; x.fillText(c[1], cxx, H - 26);
+        cxx += Math.max(x.measureText(c[1]).width, 60) + 92;
+      });
+    } else {
+      x.fillStyle = '#758c9f'; x.font = '13px Inter, sans-serif';
+      x.fillText('A universe of apps, shipped the easy way.', 48, H - 38);
+    }
+    px(S.ROCKET.rows, this.rocketColors(s.activeRocket), 2.4, W - 220, H - 78);
+    x.fillStyle = '#9fafbc'; x.font = "10px 'Press Start 2P', monospace"; x.fillText('KONSTRUCT', W - 176, H - 48);
+    x.fillStyle = '#00ff6f'; x.fillText('SHIP IT!', W - 176, H - 28);
+    return cv;
+  }
+
+  timeAgo(ts) {
+    if (!ts) return '—';
+    const m = Math.floor((Date.now() - ts) / 60000);
+    if (m < 1) return 'JUST NOW';
+    if (m < 60) return m + ' MIN AGO';
+    const h = Math.floor(m / 60);
+    if (h < 24) return h + 'H AGO';
+    return Math.floor(h / 24) + 'D AGO';
+  }
+  genDuration() { return (2 + Math.floor(Math.random() * 3)) + 'M ' + (10 + Math.floor(Math.random() * 49)) + 'S'; }
+  appMeta(a) {
+    return {
+      watching: { label: 'WATCHING MAIN…', fg: '#00bcff', anim: 'su-pulse 1.4s ease-in-out infinite' },
+      ready: { label: 'READY FOR LAUNCH', fg: '#fdc700', anim: 'su-pulse 1.2s ease-in-out infinite' },
+      building: { label: 'IN FLIGHT', fg: '#00bcff', anim: 'su-pulse 1s ease-in-out infinite' },
+      live: { label: 'HEALTHY', fg: '#00ff6f', anim: 'none' }
+    }[a.status] || { label: a.status, fg: '#9fafbc', anim: 'none' };
+  }
+
+  // ─── render ───
+  renderVals() {
+    const s = this.state, S = this.SP;
+    const sp = s.sp && S;
+    const heroL = (px) => sp ? S.heroLayers(s.hero, px) : [];
+    const bill = s.billItems.reduce((t, b) => t + (b.once ? 0 : b.amt), 0);
+    const l = s.launch;
+    const phase = l ? l.phase : '';
+    const launchAppData = l ? this.state.apps.find(x => x.id === l.appId) : null;
+
+    // creator slots
+    const lists = sp ? { SPECIES: S.SPECIES, HELMETS: S.HELMETS, SUITS: S.SUITS, CAPES: S.CAPES, GADGETS: S.GADGETS } : null;
+    const slotRows = sp ? [
+      { label: 'SPECIES', slot: 'species', list: S.SPECIES },
+      { label: 'HELMET', slot: 'helmet', list: S.HELMETS },
+      { label: 'SUIT', slot: 'suit', list: S.SUITS },
+      { label: 'CAPE', slot: 'cape', list: S.CAPES },
+      { label: 'GADGET', slot: 'gadget', list: S.GADGETS }
+    ].map(r => ({
+      label: r.label,
+      value: (r.list[s.hero[r.slot]] || r.list[0]).name,
+      prev: () => this.cycle(r.slot, -1),
+      next: () => this.cycle(r.slot, 1)
+    })) : [];
+    const lockedGear = sp ? []
+      .concat(S.HELMETS, S.SUITS, S.CAPES, S.GADGETS)
+      .filter(x => x.minLevel && s.level < x.minLevel)
+      .map(x => ({ name: x.name, lv: x.minLevel })) : [];
+
+    // quests
+    const quests = this.QUESTS.map(q => {
+      const done = !!s.questsDone[q.id];
+      const active = !done && !q.locked && (q.id === 'q1' ? true : true);
+      return {
+        name: q.name, desc: q.desc, xp: q.xp,
+        badge: done ? '✓ DONE' : (q.locked ? '× LOCKED' : '◈ ACTIVE'),
+        fg: done ? '#00ff6f' : (q.locked ? '#758c9f' : '#00bcff'),
+        bd: done ? '#0d542b' : '#3b4954',
+        op: done ? 0.75 : (q.locked ? 0.55 : 1)
+      };
+    });
+
+    // planets
+    const planetCards = s.planets.map(p => {
+      const u = this.usage(p.id);
+      const cp = Math.min(100, Math.round(u.cpu / p.cpu * 100)), mp = Math.min(100, Math.round(u.mem / p.mem * 100));
+      const appsOn = s.apps.filter(a => a.planetId === p.id);
+      const podsLive = appsOn.filter(a => a.launched).reduce((t, a) => t + a.replicas, 0);
+      const pf = sp ? this.podsFor(podsLive, 80, 2) : { ring: false, items: [], ringW: '0px', ringH: '0px', ringLeft: '0px', ringTop: '0px' };
+      const pods = pf.items;
+      return {
+        ringOn: pf.ring && podsLive > 0, ringW: pf.ringW, ringH: pf.ringH, ringLeft: pf.ringLeft, ringTop: pf.ringTop,
+        visit: () => this.visitPlanet(p.id),
+        name: p.name, cls: p.cls + ' · ' + p.cpu + ' CPU · ' + p.mem + ' GB',
+        bs: sp ? S.planetShadow(p.look, 4) : '',
+        pods,
+        cpuPct: cp + '%', memPct: mp + '%',
+        cpuFg: cp > 85 ? '#fb2c37' : (cp > 60 ? '#fdc700' : '#00ff6f'),
+        memFg: mp > 85 ? '#fb2c37' : (mp > 60 ? '#fdc700' : '#00ff6f'),
+        cpuText: u.cpu + '/' + p.cpu, memText: u.mem + '/' + p.mem + ' GB',
+        appsLabel: appsOn.length ? appsOn.length + ' app' + (appsOn.length > 1 ? 's' : '') + ' · ' + podsLive + ' pods humming' : 'Uninhabited — ship something!'
+      };
+    });
+
+    // apps
+    const appCards = s.apps.map(a => {
+      const meta = {
+        watching: { label: 'WATCHING MAIN…', fg: '#00bcff', anim: 'su-pulse 1.4s ease-in-out infinite' },
+        ready: { label: 'READY FOR LAUNCH', fg: '#fdc700', anim: 'su-pulse 1.2s ease-in-out infinite' },
+        building: { label: 'IN FLIGHT', fg: '#00bcff', anim: 'su-pulse 1s ease-in-out infinite' },
+        live: { label: 'HEALTHY', fg: '#00ff6f', anim: 'none' }
+      }[a.status] || { label: a.status, fg: '#9fafbc', anim: 'none' };
+      return {
+        stats: () => this.openAppStats(a.id, 'hq'),
+        name: a.name, repo: a.repo + ' @ ' + a.branch,
+        statusLabel: meta.label, dotFg: meta.fg, dotAnim: meta.anim,
+        showLaunch: a.status === 'ready',
+        launch: () => this.startLaunch(a.id),
+        showPush: a.status === 'live',
+        push: () => this.pushCommit(a.id),
+        hasUrl: a.status === 'live', url: a.url,
+        sizeLabel: a.cpu + ' CPU · ' + a.mem + ' GB / pod',
+        planetName: this.planetName(a.planetId),
+        replicas: a.replicas,
+        repMinus: () => this.setReplicas(a.id, -1),
+        repPlus: () => this.setReplicas(a.id, 1),
+        toggleBg: () => this.toggleBg(a.id),
+        bgBg: a.bg ? '#00a63e' : '#3b4954',
+        bgKnob: a.bg ? '18px' : '2px',
+        bgFg: a.bg ? '#00ff6f' : '#758c9f'
+      };
+    });
+
+    // register
+    const fit = s.reg.open ? this.regFits() : { ok: true };
+    const p0 = fit.p, u0 = fit.u || { cpu: 0, mem: 0 }, need0 = fit.need || { cpu: 0, mem: 0 };
+    const pct = (v, cap) => Math.min(100, Math.round(v / cap * 100)) + '%';
+
+    // rpg stats
+    const liveReplicas = s.apps.filter(a => a.launched).reduce((t, a) => t + a.replicas, 0);
+    const totalPods = s.apps.filter(a => a.launched).reduce((t, a) => t + a.replicas, 0);
+    const pwr = Math.min(100, liveReplicas * 14);
+    const res = totalPods > 0 ? 100 : 0;
+    const vel = Math.min(100, s.launches * 18);
+
+    // xp bar
+    const prevT = s.level === 0 ? 0 : this.THRESHOLDS[s.level - 1];
+    const nextT = this.THRESHOLDS[Math.min(s.level, this.THRESHOLDS.length - 1)];
+    const xpPct = Math.min(100, Math.round((s.xp - prevT) / (nextT - prevT) * 100));
+
+    // launch scene vals
+    const scenePad = ['pills', 'helmet', 'walk', 'board', 'hatch', 'liftoff'].indexOf(phase) !== -1;
+    const sceneCockpit = ['build', 'tests', 'go', 'count'].indexOf(phase) !== -1;
+    const scenePlanet = ['land', 'unpack', 'serve'].indexOf(phase) !== -1;
+    const captions = {
+      pills: 'PACKING PROTEIN PILLS…', helmet: 'HELMET: ON', walk: 'BOARDING THE ROCKET',
+      board: 'CREW ABOARD', hatch: 'SEALING THE HATCH', build: 'BUILD IN PROGRESS',
+      tests: 'PRE-FLIGHT CHECKS', go: 'AWAITING LAUNCH COMMAND', count: 'IGNITION SEQUENCE', liftoff: 'LIFTOFF!!',
+      land: 'APPROACHING ' + (l && launchAppData ? this.planetName(launchAppData.planetId) : ''), unpack: 'DEPLOYING PODS…', serve: '★ NEW LAUNCH SUCCESSFUL ★'
+    };
+    const subs = {
+      pills: 'rations: sorted', helmet: 'snug. very snug.', walk: 'your commit, lovingly crated',
+      board: 'mind the gap', hatch: 'clunk.', build: 'the cockpit terminal never lies',
+      tests: 'each green check = +15 XP', go: 'that big red button is not going to press itself', count: 'hold onto your snacks', liftoff: 'hold onto your helmet',
+      land: 'retro-thrusters engaged', unpack: 'pods popping — +25 XP per healthy pod', serve: 'traffic is flowing, hero'
+    };
+    const scenePods = [];
+    if (l && scenePlanet && sp && launchAppData) {
+      const sprD = this.podSpriteDef();
+      const lift = this.podStyle() === 'orbiters' ? 74 : 0;
+      for (let i = 0; i < launchAppData.replicas; i++) {
+        const popped = i < l.pods;
+        scenePods.push({
+          bs: S.shadow(sprD.rows, sprD.colors, 4, 0, 0),
+          left: 'calc(50% + ' + (-90 + i * 70) + 'px)', bottom: (150 + (i % 2) * 16 + lift) + 'px',
+          tr: popped ? 'scale(1)' : 'scale(0)'
+        });
+      }
+    }
+    const tests = l ? ['UNIT TESTS', 'CONTAINER SCAN', 'HEALTH PROBE', 'LAUNCH CODES'].map(n => {
+      const done = l.tests.indexOf(n) !== -1;
+      return { name: n, mark: done ? '✓' : '…', fg: done ? '#00ff6f' : '#758c9f', bd: done ? '#0d542b' : '#263237' };
+    }) : [];
+
+    // level-up stars
+    const luStars = [];
+    if ((s.lu || s.friday) && sp) {
+      for (let i = 0; i < 10; i++) {
+        luStars.push({ bs: S.shadow(S.STAR.rows, S.STAR.colors, 3, 0, 0), rot: (i * 36) + 'deg', dl: (i * 0.09) + 's' });
+      }
+    }
+
+    // ── planet detail ──
+    let pd = null;
+    if (s.screen === 'planetDetail' && sp) {
+      const p = s.planets.find(x => x.id === s.viewPlanetId);
+      if (p) {
+        const u = this.usage(p.id);
+        const appsOn = s.apps.filter(a => a.planetId === p.id);
+        const podsLive = appsOn.filter(a => a.launched).reduce((t, a) => t + a.replicas, 0);
+        const pdPf = this.podsFor(podsLive, 240, 3);
+        pd = {
+          name: p.name, cls: p.cls,
+          bs: S.planetShadow(p.look, 12),
+          pods: pdPf.items,
+          ringOn: pdPf.ring && podsLive > 0, ringW: pdPf.ringW, ringH: pdPf.ringH, ringLeft: pdPf.ringLeft, ringTop: pdPf.ringTop,
+          meta: [
+            { k: 'CLASS', v: p.cls + ' · ' + p.cpu + ' CPU · ' + p.mem + ' GB' },
+            { k: 'FOUNDED', v: this.timeAgo(p.createdAt) },
+            { k: 'LAUNCHES HERE', v: String(p.launches || 0) },
+            { k: 'PODS HUMMING', v: String(podsLive) },
+            { k: 'MONTHLY COST', v: p.cost ? '$' + p.cost + '/MO' : 'FREE W/ PACK' }
+          ],
+          cpuPct: Math.min(100, Math.round(u.cpu / p.cpu * 100)) + '%',
+          memPct: Math.min(100, Math.round(u.mem / p.mem * 100)) + '%',
+          cpuText: u.cpu + '/' + p.cpu + ' CPU', memText: u.mem + '/' + p.mem + ' GB',
+          apps: appsOn.map(a => {
+            const m = this.appMeta(a);
+            return { name: a.name, statusLabel: m.label, fg: m.fg, anim: m.anim, size: a.cpu + ' CPU · ' + a.mem + ' GB × ' + a.replicas, url: a.launched ? a.url : 'not launched yet', stats: () => this.openAppStats(a.id, 'planetDetail') };
+          }),
+          empty: appsOn.length === 0
+        };
+      }
+    }
+
+    // ── app detail ──
+    let ad = null;
+    if (s.screen === 'appDetail') {
+      const a = s.apps.find(x => x.id === s.viewAppId);
+      if (a) {
+        const m = this.appMeta(a);
+        const suf = (a.commit || 'e4d90aa').slice(0, 5);
+        const podRows = [];
+        for (let i = 0; i < a.replicas; i++) {
+          podRows.push({
+            name: a.name + '-' + suf + '-' + i,
+            status: a.launched ? (a.status === 'building' ? 'REDEPLOYING' : 'HEALTHY') : 'STANDBY',
+            fg: a.launched ? (a.status === 'building' ? '#00bcff' : '#00ff6f') : '#758c9f',
+            restarts: '0', age: a.lastLaunch ? this.timeAgo(a.lastLaunch) : '—'
+          });
+        }
+        ad = {
+          name: a.name, statusLabel: m.label, fg: m.fg, anim: m.anim,
+          hasUrl: !!a.launched, url: a.url,
+          checks: (a.checks || 0).toLocaleString(), uptime: a.launched ? '100.00%' : '—', deploys: String(a.deploys || 0),
+          deploy: [
+            { k: 'REPO', v: a.repo + ' @ ' + a.branch },
+            { k: 'COMMIT', v: a.commit ? a.commit + " '" + (a.msg || '') + "'" : '—' },
+            { k: 'IMAGE', v: a.imageSha || '—' },
+            { k: 'BUILDER', v: 'CLOUD NATIVE BUILDPACKS' },
+            { k: 'BUILD TIME', v: a.buildTime || '—' },
+            { k: 'TRIGGER', v: 'PUSH TO MAIN' },
+            { k: 'LAST DEPLOY', v: a.lastLaunch ? this.timeAgo(a.lastLaunch) : 'NEVER' },
+            { k: 'GITOPS SYNC', v: 'ARGO · AUTO' }
+          ],
+          res: [
+            { k: 'CPU / POD', v: a.cpu + ' CPU' },
+            { k: 'MEM / POD', v: a.mem + ' GB' },
+            { k: 'REPLICAS', v: String(a.replicas) },
+            { k: 'TOTAL DRAW', v: (a.cpu * a.replicas) + ' CPU · ' + (a.mem * a.replicas) + ' GB' },
+            { k: 'PLANET', v: this.planetName(a.planetId) },
+            { k: 'PORT', v: '8080' },
+            { k: 'ROLLOUT', v: a.bg ? 'BLUE/GREEN' : 'ROLLING' },
+            { k: 'REGISTERED', v: this.timeAgo(a.createdAt) }
+          ],
+          pods: podRows,
+          log: (a.history || []).map(h => ({ sha: h.sha, msg: h.msg, result: h.result, fg: '#00ff6f', dur: h.dur, ago: this.timeAgo(h.at) })),
+          logEmpty: !(a.history || []).length
+        };
+      }
+    }
+    // ── universe ──
+    const agg = this.aggStats();
+    const uPlanets = (s.screen === 'universe' && sp) ? s.planets.map(p => {
+      const appsOn = s.apps.filter(a => a.planetId === p.id && a.launched);
+      const u = this.usage(p.id);
+      const upf = this.podsFor(appsOn.reduce((t, a) => t + a.replicas, 0), 140, 2);
+      return {
+        bs: S.planetShadow(p.look, 7), w: '140px', h: '133px',
+        name: p.name, sub: u.cpu + '/' + p.cpu + ' CPU · ' + u.mem + '/' + p.mem + ' GB',
+        pods: upf.items,
+        ringOn: upf.ring && appsOn.length > 0, ringW: upf.ringW, ringH: upf.ringH, ringLeft: upf.ringLeft, ringTop: upf.ringTop,
+        hasApps: appsOn.length > 0,
+        boards: appsOn.slice(0, 2).map(a => ({
+          url: a.url,
+          stats: 'UPT 100% · ' + (a.checks || 0) + ' CHECKS · ' + (a.deploys || 0) + ' DEPLOYS · ' + a.replicas + ' PODS'
+        }))
+      };
+    }) : [];
+    const rkColors = sp ? this.rocketColors(s.activeRocket) : null;
+
+    return {
+      // chrome
+      muteLabel: s.muted ? 'Sound off' : 'Sound on', muteFg: s.muted ? '#758c9f' : '#00ff6f', toggleMute: this.toggleMute,
+      stars1: this.stars1, stars2: this.stars2,
+      scanOn: (this.props.scanlines ?? true),
+      stageShake: phase === 'liftoff' ? 'su-shake 400ms linear 5' : 'none',
+
+      // screens
+      isTitle: s.screen === 'title', isCreate: s.screen === 'create', isPlanet: s.screen === 'planet',
+      isHq: s.screen === 'hq', isShop: s.screen === 'shop',
+      isPlanetDetail: !!pd, isAppDetail: !!ad,
+      backFromPlanet: this.backFromPlanet, backFromApp: this.backFromApp,
+      openWardrobe: this.openWardrobe,
+      createTitle: s.createMode === 'wardrobe' ? 'HERO WARDROBE' : 'CHOOSE YOUR HERO',
+      createConfirmLabel: s.createMode === 'wardrobe' ? 'SAVE LOOK ▶' : 'THIS IS MY HERO ▶',
+      rocketName: (this.ROCKET_TIERS.find(x => x.id === s.activeRocket) || this.ROCKET_TIERS[0]).name,
+      fridayOpen: !!s.friday, closeFriday: this.closeFriday, fridayApp: s.friday ? s.friday.app : '',
+
+      // title
+      insertCoin: this.insertCoin, continueGame: this.continueGame, resetSave: this.resetSave,
+      hasSave: s.hasSave && s.screen === 'title',
+      saveLabel: this._saved ? ('LV ' + (this._saved.level || 0) + ' ' + ((this._saved.hero || {}).name || 'HERO')) : '',
+      coinBs: sp ? S.shadow(S.COIN.rows, S.COIN.colors, 4, 0, 0) : '',
+
+      // creator
+      createLayers: heroL(7), heroName: s.hero.name, setHeroName: this.setHeroName,
+      heroNameDisplay: s.hero.name || '— UNNAMED HERO —',
+      randomName: this.randomName, randomizeAll: this.randomizeAll,
+      slotRows, lockedGear, confirmHero: this.confirmHero,
+      confirmOp: s.hero.name.trim() ? 1 : 0.45,
+
+      // planet claim
+      planetTitle: s.planetMode === 'shop' ? 'NEW REAL ESTATE' : 'CLAIM YOUR HOMEWORLD',
+      planetBs: sp ? S.planetShadow(s.planetDraft.look, 8) : '',
+      planetName: s.planetDraft.name, setPlanetName: this.setPlanetName,
+      prevLook: () => this.cycleLook(-1), nextLook: () => this.cycleLook(1),
+      lookName: sp ? S.PLANET_LOOKS[s.planetDraft.look].name : '',
+      planetSuggestions: this.PLANET_SUGGESTIONS.map(n => ({ label: n, pick: () => { this.beep('blip'); this.setState({ planetDraft: Object.assign({}, s.planetDraft, { name: n }) }); } })),
+      planetClass: s.planetDraft.cls + ' PLANET',
+      planetCpuLabel: s.planetDraft.cpu + ' CPU', planetMemLabel: s.planetDraft.mem + ' GB',
+      planetCostLabel: s.planetDraft.cost ? '$' + s.planetDraft.cost + '/MO' : 'FREE W/ PACK',
+      claimPlanet: this.claimPlanet, claimOp: s.planetDraft.name.trim() ? 1 : 0.45,
+
+      // hq — hero panel
+      panelLayers: heroL(5),
+      heroTitle: 'PLATFORM ENGINEERING HERO',
+      level: s.level, xpLabel: s.xp + ' / ' + nextT + ' XP', xpPct: xpPct + '%',
+      rpgStats: [
+        { k: 'PWR', v: pwr, pct: pwr + '%', fg: '#00ff6f' },
+        { k: 'RES', v: res, pct: res + '%', fg: '#00bcff' },
+        { k: 'VEL', v: vel, pct: vel + '%', fg: '#fdc700' }
+      ],
+      counters: [
+        { k: 'LAUNCHES', v: s.launches },
+        { k: 'APPS LIVE', v: s.apps.filter(a => a.launched).length },
+        { k: 'PLANETS', v: s.planets.length },
+        { k: 'STREAK', v: s.streak + 'd' }
+      ],
+      tokensLabel: this.tokens() + ' / ' + (s.packsOwned * 10),
+      billLabel: '$' + bill + '/MO',
+      openShop: this.openShop,
+
+      // hq — main
+      quests,
+      showMission: s.screen === 'hq' && !s.questsDone.q1,
+      openRegister: this.openRegister,
+      planetCards, appCards, noApps: s.apps.length === 0,
+
+      // register modal
+      regOpen: s.reg.open,
+      regRepo: s.reg.repo, setRegRepo: (e) => { const v = e.target.value; this.setState({ reg: Object.assign({}, this.state.reg, { repo: v, name: v }) }); },
+      regName: s.reg.name, setRegName: (e) => this.setReg('name', e.target.value),
+      regPlanet: s.reg.planetId, setRegPlanet: (e) => this.setReg('planetId', e.target.value),
+      regCpu: String(s.reg.cpu), setRegCpu: (e) => this.setReg('cpu', +e.target.value),
+      regMem: String(s.reg.mem), setRegMem: (e) => this.setReg('mem', +e.target.value),
+      regReplicas: String(s.reg.replicas), setRegReplicas: (e) => this.setReg('replicas', +e.target.value),
+      replicaOptions: (function (self) {
+        const maxR = self.regMaxReplicas(s.reg);
+        const out = [];
+        for (let i = 1; i <= maxR; i++) out.push({ v: String(i), label: String(i) + (i === maxR && maxR < 8 ? ' · planet max' : '') });
+        return out;
+      })(this),
+      repoOptions: this.REPOS,
+      planetOptions: s.planets.map(p => ({ v: p.id, label: p.name })),
+      capFg: fit.ok ? '#00ff6f' : '#fb2c37',
+      capNote: fit.ok ? 'FITS ✓' : 'TOO BIG — PLANET FULL',
+      capFull: s.reg.open && !fit.ok,
+      goShopFromReg: () => { this.beep('sel'); this.setState({ reg: Object.assign({}, this.state.reg, { open: false }), screen: 'shop' }); },
+      capCpuUsed: p0 ? pct(u0.cpu, p0.cpu) : '0%', capCpuNew: p0 ? pct(need0.cpu, p0.cpu) : '0%',
+      capMemUsed: p0 ? pct(u0.mem, p0.mem) : '0%', capMemNew: p0 ? pct(need0.mem, p0.mem) : '0%',
+      capCpuText: p0 ? (u0.cpu + need0.cpu) + '/' + p0.cpu : '', capMemText: p0 ? (u0.mem + need0.mem) + '/' + p0.mem + 'GB' : '',
+      closeRegister: this.closeRegister, submitRegister: this.submitRegister,
+      regOp: s.reg.repo && s.reg.name.trim() ? 1 : 0.45,
+
+      // shop
+      merchantLayers: sp ? S.heroLayers({ species: 1, helmet: 0, suit: 3, cape: 0, gadget: 3 }, 4) : [],
+      shopItems: sp ? [
+        { name: 'APP 10-PACK', desc: '+10 app tokens to ship more weird ideas.', price: '$10/MO', iconBs: S.shadow(S.CRATE.rows, S.CRATE.colors, 3, 0, 0), buy: this.buyPack },
+        { name: 'SMALL PLANET', desc: '10 CPU · 10 GB. Cozy starter world.', price: '$8/MO', iconBs: S.planetShadow(1, 2.4), buy: () => this.buyPlanet('SMALL', 10, 10, 8) },
+        { name: 'MEDIUM PLANET', desc: '20 CPU · 20 GB. Room for a fleet.', price: '$15/MO', iconBs: S.planetShadow(4, 2.9), buy: () => this.buyPlanet('MEDIUM', 20, 20, 15) },
+        { name: 'PLANET UPGRADE', desc: '+10 CPU · +10 GB on your first world.', price: '$7/MO', iconBs: S.shadow(S.POD.rows, S.POD.colors, 5, 0, 0), buy: this.buyUpgrade },
+        { name: 'SWIFT MK-II', desc: '20% faster builds. ' + this.ORG_TAG + ' livery on the hull.', price: '$12/MO', iconBs: S.shadow(S.ROCKET.rows, this.rocketColors('swift'), 2.4, 0, 0), buy: () => this.buyRocket('swift') },
+        { name: 'GOLD FLAGSHIP', desc: '+25 XP sponsor bonus per launch. Shiny.', price: '$25/MO', iconBs: S.shadow(S.ROCKET.rows, this.rocketColors('flag'), 2.4, 0, 0), buy: () => this.buyRocket('flag') },
+        { name: 'MEET JOHN DIETZ', desc: 'One meeting with the Konstruct cofounder. Best deal in the galaxy.', price: '$0', iconBs: '', img: 'uploads/johndietz-pixel.png', buy: this.bookDietz, href: 'https://ro.am/johndietz/book-me', cta: 'BOOK' },
+        { name: 'FREE JOHN DIETZ', desc: 'Show your support — help get John out of trouble for adding a video game to Konstruct.', price: '$1', iconBs: S.shadow(S.STAR.rows, { g: '#fdc700', w: '#fef9c2' }, 6, 0, 0), buy: this.buySupport },
+        { name: 'KONSTRUCT CREW · 5 HRS', desc: 'Five hours with the Konstruct team. Real humans, real expertise.', price: '$1,000', iconBs: S.shadow(S.COIN.rows, S.COIN.colors, 5, 0, 0), buy: this.buyHours, href: 'https://www.civo.com/konstruct#contact', locked: s.level < 5, lockNote: 'LV 5 REQUIRED' }
+      ].map(i => Object.assign({ lockNote: '' }, i, {
+        cta: i.cta || 'BUY',
+        href: i.href || '#',
+        isLink: !!i.href && !i.locked,
+        isBtn: !i.href && !i.locked,
+        img: i.img || '',
+        hasImg: !!i.img,
+        noImg: !i.img
+      })) : [],
+      hangar: sp ? s.rockets.map(id => {
+        const t = this.ROCKET_TIERS.find(x => x.id === id);
+        return { name: t.name, note: t.note, iconBs: S.shadow(S.ROCKET.rows, this.rocketColors(id), 2, 0, 0), equipped: s.activeRocket === id, canEquip: s.activeRocket !== id, equip: () => this.equipRocket(id) };
+      }) : [],
+      billLines: s.billItems.map(b => ({ label: b.label, amt: '$' + b.amt.toLocaleString() + (b.once ? ' one-time' : '/mo') })),
+      closeShop: this.closeShop,
+
+      // launch cinematic
+      launchOpen: !!l,
+      lCaption: captions[phase] || '', lSub: subs[phase] || '',
+      skipLaunch: this.skipLaunch,
+      scenePad, sceneCockpit, scenePlanet,
+      rocketBs: sp ? S.shadow(S.ROCKET.rows, rkColors, 5, 0, 0) : '',
+      rocketSmBs: sp ? S.shadow(S.ROCKET.rows, rkColors, 4, 0, 0) : '',
+      rocketLabelOn: s.activeRocket !== 'rust',
+      rocketLabel: this.ORG_TAG,
+      rocketLabelFg: s.activeRocket === 'flag' ? '#bb4d00' : '#0069a8',
+      rocketBottom: phase === 'liftoff' ? '760px' : '56px',
+      rocketTop: (phase === 'unpack' || phase === 'serve') ? '52%' : (phase === 'land' ? '52%' : '-140px'),
+      hatchH: ['pills', 'helmet', 'walk', 'board'].indexOf(phase) !== -1 ? '30px' : '0px',
+      flameOn: phase === 'liftoff',
+      flameBs: sp ? S.shadow((s.flameFlip ? S.FLAME_A : S.FLAME_B).rows, (s.flameFlip ? S.FLAME_A : S.FLAME_B).colors, 5, 0, 0) : '',
+      launchHeroLayers: (['pills', 'helmet', 'walk', 'board'].indexOf(phase) !== -1 && sp) ? S.heroLayers(phase === 'pills' ? s.hero : Object.assign({}, s.hero, { helmet: s.hero.helmet === 0 ? 1 : s.hero.helmet }), 5) : [],
+      heroX: (phase === 'pills' || phase === 'helmet') ? 'calc(50% - 230px)' : (phase === 'walk' ? 'calc(50% - 95px)' : 'calc(50% - 72px)'),
+      heroOp: phase === 'board' ? 0 : 1,
+      helmetFlash: phase === 'helmet',
+      pillsOn: phase === 'pills',
+      pillsBs: sp ? S.shadow(S.PILLS.rows, S.PILLS.colors, 4, 0, 0) : '',
+      crateOn: ['pills', 'helmet', 'walk', 'board'].indexOf(phase) !== -1,
+      crateBs: sp ? S.shadow(S.CRATE.rows, S.CRATE.colors, 4, 0, 0) : '',
+      countOn: phase === 'count', countText: l ? l.count : '',
+      goOn: phase === 'go',
+      pressLaunch: this.pressLaunch,
+      btnBg: phase === 'go' ? '#e7000b' : (phase === 'count' ? '#82181a' : '#263237'),
+      btnRim: (phase === 'go' || phase === 'count') ? '#460809' : '#3b4954',
+      btnFg: (phase === 'go' || phase === 'count') ? '#fff' : '#758c9f',
+      btnLabel: phase === 'count' ? 'GO!' : 'LAUNCH',
+      btnAnim: phase === 'go' ? 'su-pulse 0.9s ease-in-out infinite' : 'none',
+      btnCursor: phase === 'go' ? 'pointer' : 'default',
+      btnShadow: phase === 'go' ? '0 0 34px rgba(231,0,11,0.6)' : (phase === 'count' ? 'inset 0 4px 10px rgba(0,0,0,0.5)' : 'none'),
+      btnHint: phase === 'go' ? 'PRESS TO LAUNCH!' : (phase === 'count' ? 'IGNITION!' : 'ARMING…'),
+      btnHintFg: phase === 'go' ? '#00ff6f' : '#758c9f',
+      cockLights: (function (tn, ln, ph) {
+        const lit = (on) => on ? { fg: '#00ff6f', anim: 'none' } : { fg: '#fdc700', anim: 'su-pulse 1.2s ease-in-out infinite' };
+        const past = ph === 'go' || ph === 'count';
+        return [
+          Object.assign({ label: 'FUEL' }, lit(true)),
+          Object.assign({ label: 'BUILD' }, lit(ln >= 10 || ph === 'tests' || past)),
+          Object.assign({ label: 'GITOPS' }, lit(tn >= 2 || past)),
+          Object.assign({ label: 'COMMS' }, lit(tn >= 4 || past))
+        ];
+      })(l ? l.tests.length : 0, l ? l.logs.length : 0, phase),
+      logLines: l ? l.logs.map(t => ({ text: t, fg: t.indexOf('✓') !== -1 ? '#00ff6f' : (t.indexOf('IMAGE') !== -1 ? '#46ecd5' : '#9fafbc') })) : [],
+      buildPct: l ? Math.min(100, Math.round(l.logs.length / 10 * 100)) + '%' : '0%',
+      tests,
+      planetBigBs: sp && launchAppData ? S.planetShadow((s.planets.find(x => x.id === launchAppData.planetId) || { look: 0 }).look, 16) : '',
+      scenePods,
+      bgZones: !!(l && l.swap) && (this.props.showBgZones ?? false),
+      urlOn: phase === 'serve', launchUrl: launchAppData ? launchAppData.url : '',
+
+      // level up
+      luOpen: !!s.lu, luLevel: s.lu ? s.lu.level : 0,
+      luUnlockOn: !!(s.lu && s.lu.unlock), luUnlock: s.lu ? s.lu.unlock : '',
+      luStars, closeLu: this.closeLu,
+
+      // universe
+      isUniverse: s.screen === 'universe',
+      openUniverse: this.openUniverse, closeUniverse: this.closeUniverse,
+      toggleUniverseStats: this.toggleUniverseStats,
+      statsToggleLabel: s.universeStats ? 'STATS: ON' : 'STATS: OFF',
+      statsOn: s.universeStats,
+      uTitle: 'THE ' + this.ORG + ' UNIVERSE',
+      uPlanets, uEmpty: s.screen === 'universe' && s.planets.length === 0,
+      uAgg: [
+        { k: 'APPS LIVE', v: String(agg.appsLive), fg: '#00ff6f' },
+        { k: 'LAUNCHES', v: String(agg.launches), fg: '#f3f5f7' },
+        { k: 'HEALTH CHECKS', v: String(agg.checks), fg: '#00bcff' },
+        { k: 'UPTIME', v: '100.00%', fg: '#00ff6f' },
+        { k: 'HERO', v: 'LV ' + s.level, fg: '#fdc700' }
+      ],
+      uRocketBs: sp ? S.shadow(S.ROCKET.rows, rkColors, 2, 0, 0) : '',
+      shareHref: 'https://www.linkedin.com/feed/?shareActive=true&text=' + encodeURIComponent(this.shareText()),
+      shareUniverse: this.shareUniverse,
+      shareOpen: !!s.share,
+      shareImgUrl: s.share ? s.share.url : '',
+      shareCopiedNote: s.share ? (s.share.copied ? '✓ IMAGE COPIED TO CLIPBOARD — paste it into any LinkedIn post.' : 'Clipboard unavailable here — SAVE PNG and attach it manually.') : '',
+      shareCopiedFg: s.share && s.share.copied ? '#00ff6f' : '#fdc700',
+      sharePostText: this.shareText(),
+      closeShare: this.closeShare, copyShareImage: this.copyShareImage,
+      downloadShare: this.downloadShare, copyShareText: this.copyShareText,
+
+      // planet detail
+      pdName: pd ? pd.name : '', pdCls: pd ? pd.cls : '', pdBs: pd ? pd.bs : '',
+      pdPods: pd ? pd.pods : [], pdMeta: pd ? pd.meta : [],
+      pdRingOn: !!(pd && pd.ringOn), pdRingW: pd ? pd.ringW : '0px', pdRingH: pd ? pd.ringH : '0px', pdRingLeft: pd ? pd.ringLeft : '0px', pdRingTop: pd ? pd.ringTop : '0px',
+      pdCpuPct: pd ? pd.cpuPct : '0%', pdMemPct: pd ? pd.memPct : '0%',
+      pdCpuText: pd ? pd.cpuText : '', pdMemText: pd ? pd.memText : '',
+      pdApps: pd ? pd.apps : [], pdEmpty: !!(pd && pd.empty),
+
+      // app detail
+      adName: ad ? ad.name : '', adStatusLabel: ad ? ad.statusLabel : '', adStatusFg: ad ? ad.fg : '#9fafbc', adStatusAnim: ad ? ad.anim : 'none',
+      adHasUrl: !!(ad && ad.hasUrl), adUrl: ad ? ad.url : '',
+      adChecks: ad ? ad.checks : '0', adUptime: ad ? ad.uptime : '—', adDeploys: ad ? ad.deploys : '0',
+      adDeploy: ad ? ad.deploy : [], adRes: ad ? ad.res : [],
+      adPods: ad ? ad.pods : [], adLog: ad ? ad.log : [], adLogEmpty: !!(ad && ad.logEmpty),
+
+      // toast + floaters
+      toastOn: !!s.toast,
+      toastTitle: s.toast ? s.toast.title : '', toastBody: s.toast ? s.toast.body : '', toastBd: s.toast ? s.toast.bd : '#00ff6f',
+      floaters: s.floaters.map(f => ({ text: f.text, left: f.left, top: f.top, fg: f.fg }))
+    };
+  }
+}
+</script>
+<script src="kontract.js"></script>
+<script src="kontract-bridge.js" defer></script>
+</body>
+</html>

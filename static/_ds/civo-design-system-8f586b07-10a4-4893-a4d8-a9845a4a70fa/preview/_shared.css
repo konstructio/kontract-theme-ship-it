@@ -1,0 +1,32 @@
+/* preview cards shared styles */
+@import url('../colors_and_type.css');
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+.card {
+  width: 700px;
+  box-sizing: border-box;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.row { display: flex; gap: 12px; align-items: center; }
+.wrap { display: flex; flex-wrap: wrap; gap: 12px; }
+.kicker {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-4);
+}
+.hint {
+  font-size: 11px;
+  color: var(--fg-4);
+  font-family: var(--font-mono);
+}
