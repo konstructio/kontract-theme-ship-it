@@ -136,6 +136,20 @@
       game.setState(patch);
     });
 
+    // ── real repo picker: the org's registered repositories ────────
+    kontract
+      .appRepos(org)
+      .then((repos) => {
+        const list = (Array.isArray(repos) ? repos : [])
+          .map((r) => {
+            const name = (r.repo_name || r.name || "").split("/").pop();
+            return name ? { v: name, label: name + (r.namespace ? " \u00b7 " + r.namespace : "") } : null;
+          })
+          .filter(Boolean);
+        if (list.length) game.REPOS = list;
+      })
+      .catch(() => {});
+
     // ── persist -> character ────────────────────────────────────────
     const origPersist = game.persist.bind(game);
     let saveT = null;

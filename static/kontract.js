@@ -50,6 +50,8 @@ const kontract = (() => {
     zones: (org) => call("GET", `/foreman/zones/${org}`),
     createZone: (org, zone) => call("POST", `/foreman/zones/${org}`, zone),
     apps: (org) => call("GET", `/foreman/apps/${org}`),
+    // Registered application repositories — what an org may ship.
+    appRepos: (org) => call("GET", `/konstruct-application/${org}`),
     shipApp: (app) => call("POST", `/foreman/app`, app),
     deleteApp: (org, name) => call("DELETE", `/foreman/app/${org}/${name}`),
     redeploy: (org, name) => call("POST", `/foreman/app/${org}/${name}/redeploy`),
