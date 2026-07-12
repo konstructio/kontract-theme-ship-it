@@ -2311,6 +2311,20 @@ class Component extends DCLogic {
   }
 }
 </script>
+<style>
+  /* Embedded in the Konstruct launcher: the host window already provides nav
+     and identity, so the prototype's mock shell flattens away. Standalone
+     keeps the full demo framing. */
+  html.su-embedded aside[data-screen-label="Left nav"] { display: none !important; }
+  html.su-embedded header > *:not([title="Sound"]) { display: none !important; }
+  html.su-embedded header button[title="Sound"] { margin-left: auto; }
+  html.su-embedded header { height: 52px; min-height: 52px; }
+</style>
+<script>
+  if (/[#&]token=/.test(location.hash) || sessionStorage.getItem("kontract.token")) {
+    document.documentElement.classList.add("su-embedded");
+  }
+</script>
 <script src="kontract.js"></script>
 <script src="kontract-bridge.js" defer></script>
 </body>
