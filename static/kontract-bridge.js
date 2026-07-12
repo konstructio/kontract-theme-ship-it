@@ -212,6 +212,31 @@
         });
     };
 
+    // ── scale + relaunch reach the platform for real-backed apps ───
+    const realName = (ga) => (ga && ga.id && ga.id.startsWith("app:") ? ga.id.slice(4) : null);
+
+    const origSetReplicas = game.setReplicas.bind(game);
+    game.setReplicas = function (id, d) {
+      origSetReplicas(id, d);
+      const ga = this.state.apps.find((a) => a.id === id);
+      const name = realName(ga);
+      if (name && ga) {
+        kontract.updateApp(org, name, { replicas: ga.replicas }).catch(() => {});
+      }
+    };
+
+    const origStartLaunch = game.startLaunch.bind(game);
+    game.startLaunch = function (appId) {
+      const ga = this.state.apps.find((a) => a.id === appId);
+      const name = realName(ga);
+      origStartLaunch(appId);
+      // relaunching an already-delivered app is a real redeploy; first
+      // launches are already building from registration
+      if (name && ga && ga.launched) {
+        kontract.redeploy(org, name).catch(() => {});
+      }
+    };
+
     // ── poll real app phases onto the game ──────────────────────────
     setInterval(() => {
       kontract

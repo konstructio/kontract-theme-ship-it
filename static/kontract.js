@@ -53,6 +53,7 @@ const kontract = (() => {
     // Registered application repositories — what an org may ship.
     appRepos: (org) => call("GET", `/konstruct-application/${org}`),
     shipApp: (app) => call("POST", `/foreman/app`, app),
+    updateApp: (org, name, body) => call("PATCH", `/foreman/app/${org}/${name}`, body),
     deleteApp: (org, name) => call("DELETE", `/foreman/app/${org}/${name}`),
     redeploy: (org, name) => call("POST", `/foreman/app/${org}/${name}/redeploy`),
     buildLogs: (org, name) => call("GET", `/foreman/app/${org}/${name}/build-logs`),
