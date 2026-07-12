@@ -13,7 +13,7 @@ import (
 	"os"
 )
 
-//go:embed static
+//go:embed all:static
 var assets embed.FS
 
 func main() {
