@@ -26,5 +26,5 @@ func main() {
 		panic(err)
 	}
 	http.Handle("/", http.FileServer(http.FS(static)))
-	http.ListenAndServe(":"+port, nil)
+	http.ListenAndServe(":"+port, nil) //nolint:errcheck
 }
