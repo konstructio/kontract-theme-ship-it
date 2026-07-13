@@ -4,10 +4,10 @@
  * window.__shipit on mount; this bridge seeds real data into it and wraps
  * the handful of actions that must hit the platform:
  *
- *   planets  <- zones        (claim/buy planet -> POST /foreman/zones)
- *   rockets  <- apps         (register app     -> POST /foreman/app, real
+ *   planets  <- zones        (claim/buy planet -> POST /kontract/zones)
+ *   rockets  <- apps         (register app     -> POST /kontract/app, real
  *                             statuses/URLs polled onto the game state)
- *   hero/XP  <- character    (persist          -> PUT /foreman/character)
+ *   hero/XP  <- character    (persist          -> PUT /kontract/character)
  *
  * Cinematics, audio, XP math and the shop fiction stay 100% client-side.
  * Without a launcher session the bridge stands down and the game runs as
@@ -17,7 +17,7 @@
   const org = new URLSearchParams(location.search).get("org");
   if (!org || !window.kontract || !kontract.hasToken()) return;
 
-  const GIT_BASE = "https://gitlab.kubefunk.net/gitops-biz/platform/";
+  const GIT_BASE = "https://github.com/konstructio/";
   const BAND_CAPS = { small: [10, 10], medium: [20, 20], large: [30, 30] };
   const hash = (s) => [...s].reduce((a, c) => (a * 31 + c.charCodeAt(0)) | 0, 7);
 
@@ -182,7 +182,7 @@
         });
     };
 
-    // ── register app -> real ForemanApp ─────────────────────────────
+    // ── register app -> real KontractApp ──────────────────────────────
     const origRegister = game.submitRegister.bind(game);
     game.submitRegister = function () {
       const r = this.state.reg;
@@ -193,7 +193,9 @@
       const repoUrl = repo.includes("://") ? repo : GIT_BASE + repo;
       const repoName = repo.includes("://")
         ? repo.replace(/^https?:\/\/[^/]+\//, "").replace(/\.git$/, "")
-        : "gitops-biz/platform/" + repo;
+        : "konstructio/" + repo;
+      const planet = this.state.planets.find((p) => p.id === r.planetId);
+      const zoneRef = planet && planet.id && planet.id.startsWith("zone:") ? planet.id.slice(5) : "";
       kontract
         .shipApp({
           namespace: org,
@@ -205,6 +207,8 @@
           port: 8080,
           replicas: r.replicas || 1,
           public_url_enabled: true,
+          zone_ref: zoneRef,
+          size: "s",
         })
         .catch((e) => {
           this.showToast &&
